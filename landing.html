@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>D-Club — NASDAQ Yatırım Topluluğu</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&display=swap" rel="stylesheet" />
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --bg:#07090f;
+  --bg2:#0d1119;
+  --bg3:#111827;
+  --border:#1c2840;
+  --border2:#263552;
+  --text:#dde6f5;
+  --muted:#4d6a99;
+  --accent:#2d6ef5;
+  --accent2:#1a4db8;
+  --green:#1db87a;
+  --amber:#e8a020;
+  --red:#e84040;
+}
+
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.6;overflow-x:hidden}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;background:rgba(7,9,15,0.85);backdrop-filter:blur(12px);border-bottom:1px solid rgba(28,40,64,0.6)}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-mark{width:32px;height:32px;background:var(--accent);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:15px;color:#fff}
+.nav-name{font-family:'Syne',sans-serif;font-weight:700;font-size:17px;letter-spacing:.02em}
+.nav-cta{background:var(--accent);color:#fff;border:none;border-radius:8px;padding:9px 20px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;cursor:pointer;text-decoration:none;transition:background .2s}
+.nav-cta:hover{background:var(--accent2)}
+
+/* ── HERO ── */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 24px 80px;position:relative;overflow:hidden}
+.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(45,110,245,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(45,110,245,.04) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 80% 60% at 50% 50%,black,transparent)}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;font-family:'DM Sans',monospace;font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);border:1px solid rgba(45,110,245,.3);background:rgba(45,110,245,.08);padding:6px 16px;border-radius:20px;margin-bottom:28px}
+.hero-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+h1{font-family:'Syne',sans-serif;font-weight:800;font-size:clamp(36px,6vw,72px);line-height:1.05;letter-spacing:-.03em;margin-bottom:24px}
+h1 .accent{color:var(--accent)}
+h1 .dim{color:var(--muted)}
+.hero-sub{font-size:clamp(15px,2vw,19px);color:var(--muted);max-width:560px;margin:0 auto 44px;line-height:1.7}
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn-primary{background:var(--accent);color:#fff;border:none;border-radius:10px;padding:15px 32px;font-family:'DM Sans',sans-serif;font-size:16px;font-weight:500;cursor:pointer;text-decoration:none;transition:background .2s,transform .1s}
+.btn-primary:hover{background:var(--accent2)}
+.btn-primary:active{transform:scale(.98)}
+.btn-secondary{background:transparent;color:var(--text);border:1px solid var(--border2);border-radius:10px;padding:15px 32px;font-family:'DM Sans',sans-serif;font-size:16px;font-weight:500;cursor:pointer;text-decoration:none;transition:border-color .2s,background .2s}
+.btn-secondary:hover{border-color:var(--accent);background:rgba(45,110,245,.06)}
+.hero-stat-row{display:flex;gap:40px;justify-content:center;flex-wrap:wrap;margin-top:60px;padding-top:60px;border-top:1px solid var(--border)}
+.hero-stat{text-align:center}
+.hero-stat-num{font-family:'Syne',sans-serif;font-weight:700;font-size:32px;color:var(--text);line-height:1}
+.hero-stat-label{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-top:6px}
+
+/* ── SECTION ── */
+section{padding:96px 24px}
+.container{max-width:1100px;margin:0 auto}
+.section-badge{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+h2{font-family:'Syne',sans-serif;font-weight:700;font-size:clamp(28px,4vw,44px);line-height:1.15;letter-spacing:-.02em;margin-bottom:16px}
+.section-sub{font-size:17px;color:var(--muted);max-width:540px;line-height:1.7}
+
+/* ── TICKER TAPE ── */
+.ticker-wrap{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:14px 0;overflow:hidden;position:relative}
+.ticker-wrap::before,.ticker-wrap::after{content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2}
+.ticker-wrap::before{left:0;background:linear-gradient(90deg,var(--bg2),transparent)}
+.ticker-wrap::after{right:0;background:linear-gradient(270deg,var(--bg2),transparent)}
+.ticker{display:flex;gap:48px;animation:scroll 30s linear infinite;width:max-content}
+@keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.tick-item{display:flex;align-items:center;gap:10px;font-family:'DM Sans',monospace;font-size:13px;white-space:nowrap}
+.tick-name{font-weight:600;color:var(--text)}
+.tick-price{color:var(--muted)}
+.tick-up{color:var(--green)}
+.tick-dn{color:var(--red)}
+
+/* ── FEATURES ── */
+.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin-top:56px}
+.feat-card{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:28px;position:relative;overflow:hidden;transition:border-color .2s}
+.feat-card:hover{border-color:var(--border2)}
+.feat-card.featured{border-color:rgba(45,110,245,.4);background:linear-gradient(135deg,rgba(45,110,245,.06),var(--bg2))}
+.feat-icon{width:44px;height:44px;border-radius:10px;background:rgba(45,110,245,.12);border:1px solid rgba(45,110,245,.2);display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:18px}
+.feat-card h3{font-family:'Syne',sans-serif;font-weight:600;font-size:18px;margin-bottom:10px}
+.feat-card p{font-size:14px;color:var(--muted);line-height:1.7}
+.feat-tag{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:5px;margin-top:14px}
+.feat-tag.members{background:rgba(45,110,245,.12);color:var(--accent);border:1px solid rgba(45,110,245,.2)}
+.feat-tag.free{background:rgba(29,184,122,.1);color:var(--green);border:1px solid rgba(29,184,122,.2)}
+
+/* ── WHO ── */
+.who-wrap{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;margin-top:56px}
+@media(max-width:768px){.who-wrap{grid-template-columns:1fr}}
+.who-card{background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:36px}
+.who-avatar{width:64px;height:64px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#8b5cf6);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:22px;color:#fff;margin-bottom:20px}
+.who-card h3{font-family:'Syne',sans-serif;font-weight:700;font-size:22px;margin-bottom:12px}
+.who-card p{font-size:14px;color:var(--muted);line-height:1.8}
+.who-list{margin-top:20px;display:flex;flex-direction:column;gap:10px}
+.who-item{display:flex;align-items:center;gap:10px;font-size:14px;color:var(--muted)}
+.who-item::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green);flex-shrink:0}
+.who-quote{background:rgba(45,110,245,.06);border:1px solid rgba(45,110,245,.15);border-radius:12px;padding:20px;margin-top:20px;font-size:14px;color:var(--text);line-height:1.7;font-style:italic}
+.who-quote-author{font-size:12px;color:var(--muted);margin-top:10px;font-style:normal}
+
+/* ── PRICING ── */
+.pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:56px;max-width:720px}
+@media(max-width:600px){.pricing-grid{grid-template-columns:1fr}}
+.price-card{background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:32px}
+.price-card.featured{border-color:rgba(45,110,245,.5);background:linear-gradient(160deg,rgba(45,110,245,.08),var(--bg2))}
+.price-label{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.price-label.hot{color:var(--accent)}
+.price-num{font-family:'Syne',sans-serif;font-weight:800;font-size:42px;line-height:1;margin-bottom:6px}
+.price-num span{font-size:18px;font-weight:400;color:var(--muted)}
+.price-period{font-size:13px;color:var(--muted);margin-bottom:24px}
+.price-divider{height:1px;background:var(--border);margin-bottom:20px}
+.price-items{display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
+.price-item{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--muted)}
+.price-item-icon{font-size:14px;flex-shrink:0;margin-top:1px}
+.price-btn{display:block;width:100%;padding:14px;border-radius:10px;text-align:center;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;text-decoration:none;transition:all .2s;cursor:pointer;border:none}
+.price-btn.primary{background:var(--accent);color:#fff}
+.price-btn.primary:hover{background:var(--accent2)}
+.price-btn.outline{background:transparent;color:var(--text);border:1px solid var(--border2)}
+.price-btn.outline:hover{border-color:var(--accent);background:rgba(45,110,245,.06)}
+
+/* ── CTA ── */
+.cta-section{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);text-align:center;padding:96px 24px}
+.cta-section h2{max-width:600px;margin:0 auto 16px}
+.cta-section p{color:var(--muted);margin-bottom:40px;font-size:17px}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+/* ── FOOTER ── */
+footer{padding:40px 24px;text-align:center;border-top:1px solid var(--border)}
+footer p{font-size:12px;color:var(--muted)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:600px){
+  .hero-btns{flex-direction:column;align-items:center}
+  .btn-primary,.btn-secondary{width:100%;max-width:320px;text-align:center}
+  .hero-stat-row{gap:24px}
+  .features-grid{grid-template-columns:1fr}
+  .pricing-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">
+    <div class="nav-mark">D</div>
+    <span class="nav-name">D-Club</span>
+  </div>
+  <a href="https://dclub-tr.github.io/d-club/" class="nav-cta">Ücretsiz Katıl</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-badge">
+    <span class="hero-badge-dot"></span>
+    Sistem aktif · Günlük rapor yayında
+  </div>
+  <h1>
+    NASDAQ'ı<br>
+    <span class="accent">Gerçek Portföyüyle</span><br>
+    <span class="dim">Takip Et</span>
+  </h1>
+  <p class="hero-sub">
+    20 yıllık kurumsal bankacılık deneyimi. Gerçek işlemler, gerçek rakamlar.
+    Hiçbir bahane yok — her ay tam şeffaflıkla hesap veriyorum.
+  </p>
+  <div class="hero-btns">
+    <a href="https://dclub-tr.github.io/d-club/" class="btn-primary">🚀 Ücretsiz Katıl</a>
+    <a href="https://whop.com/joined/d-club/" class="btn-secondary">Members Ol — $6.99/ay</a>
+  </div>
+  <div class="hero-stat-row">
+    <div class="hero-stat">
+      <div class="hero-stat-num" style="color:var(--green)">+%8.3</div>
+      <div class="hero-stat-label">Nisan Portföy</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">3×</div>
+      <div class="hero-stat-label">Günlük Rapor</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">20+</div>
+      <div class="hero-stat-label">Yıl Deneyim</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num" style="color:var(--accent)">7/24</div>
+      <div class="hero-stat-label">Bot Aktif</div>
+    </div>
+  </div>
+</section>
+
+<!-- TICKER TAPE -->
+<div class="ticker-wrap">
+  <div class="ticker">
+    <div class="tick-item"><span class="tick-name">NVDA</span><span class="tick-price">$875.40</span><span class="tick-up">+2.4%</span></div>
+    <div class="tick-item"><span class="tick-name">SOFI</span><span class="tick-price">$8.12</span><span class="tick-up">+1.8%</span></div>
+    <div class="tick-item"><span class="tick-name">AMD</span><span class="tick-price">$162.30</span><span class="tick-dn">-0.6%</span></div>
+    <div class="tick-item"><span class="tick-name">RKLB</span><span class="tick-price">$23.50</span><span class="tick-up">+5.2%</span></div>
+    <div class="tick-item"><span class="tick-name">AAPL</span><span class="tick-price">$213.70</span><span class="tick-up">+0.9%</span></div>
+    <div class="tick-item"><span class="tick-name">TSLA</span><span class="tick-price">$195.20</span><span class="tick-dn">-1.2%</span></div>
+    <div class="tick-item"><span class="tick-name">MSFT</span><span class="tick-price">$418.60</span><span class="tick-up">+0.4%</span></div>
+    <div class="tick-item"><span class="tick-name">META</span><span class="tick-price">$506.80</span><span class="tick-up">+1.1%</span></div>
+    <!-- Repeat for infinite scroll -->
+    <div class="tick-item"><span class="tick-name">NVDA</span><span class="tick-price">$875.40</span><span class="tick-up">+2.4%</span></div>
+    <div class="tick-item"><span class="tick-name">SOFI</span><span class="tick-price">$8.12</span><span class="tick-up">+1.8%</span></div>
+    <div class="tick-item"><span class="tick-name">AMD</span><span class="tick-price">$162.30</span><span class="tick-dn">-0.6%</span></div>
+    <div class="tick-item"><span class="tick-name">RKLB</span><span class="tick-price">$23.50</span><span class="tick-up">+5.2%</span></div>
+    <div class="tick-item"><span class="tick-name">AAPL</span><span class="tick-price">$213.70</span><span class="tick-up">+0.9%</span></div>
+    <div class="tick-item"><span class="tick-name">TSLA</span><span class="tick-price">$195.20</span><span class="tick-dn">-1.2%</span></div>
+    <div class="tick-item"><span class="tick-name">MSFT</span><span class="tick-price">$418.60</span><span class="tick-up">+0.4%</span></div>
+    <div class="tick-item"><span class="tick-name">META</span><span class="tick-price">$506.80</span><span class="tick-up">+1.1%</span></div>
+  </div>
+</div>
+
+<!-- FEATURES -->
+<section>
+  <div class="container">
+    <div class="section-badge">Ne Sunuyoruz</div>
+    <h2>Sadece haber değil.<br>Gerçek karar desteği.</h2>
+    <p class="section-sub">Sabah 10:30'dan gece 23:00'a kadar piyasanın nabzını tutuyoruz.</p>
+
+    <div class="features-grid">
+
+      <div class="feat-card featured">
+        <div class="feat-icon">📊</div>
+        <h3>Gerçek İşlem Bildirimleri</h3>
+        <p>Hisse aldığımda veya sattığımda anında bildirim alırsın. Tam detay: ticker, adet, fiyat, gerekçe.</p>
+        <span class="feat-tag members">Members</span>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-icon">📈</div>
+        <h3>BAK Analizi</h3>
+        <p>İstediğin hisseyi sorgula. EMA50/100/200, RSI, MACD, Fibonacci seviyeleri ve analist konsensüsü anında.</p>
+        <span class="feat-tag members">Members</span>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-icon">📰</div>
+        <h3>Günlük Haber Akışı</h3>
+        <p>10:30, 15:30 ve 20:00'da Türkçe piyasa haberleri. Portföydeki hisselerin şirket haberleri ayrıca gelir.</p>
+        <span class="feat-tag free">Ücretsiz</span>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-icon">💼</div>
+        <h3>Model Portföy Raporu</h3>
+        <p>Günde 3 kez: açılış, piyasa saatleri ve kapanış. Toplam getiri, günlük değişim, hisse bazlı performans.</p>
+        <span class="feat-tag free">Ücretsiz</span>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-icon">🎯</div>
+        <h3>Fırsat Raporları</h3>
+        <p>Öne çıkan hisseler için hazırlanmış detaylı raporlar. Neden izliyorum, hedef fiyat nedir?</p>
+        <span class="feat-tag members">Members</span>
+      </div>
+
+      <div class="feat-card">
+        <div class="feat-icon">🗳️</div>
+        <h3>Haftalık Anketler</h3>
+        <p>Piyasa görüşünü paylaş. Sonuçlar Members'a özel — topluluğun nabzını tut.</p>
+        <span class="feat-tag members">Members</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- WHO IS IT FOR -->
+<section style="background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+  <div class="container">
+    <div class="section-badge">Kimler İçin</div>
+    <h2>Yatırıma yeni başlayanlar<br>için tasarlandı.</h2>
+    <p class="section-sub">Tecrübeli trader'lar için değil. NASDAQ'a merak eden ama nereden başlayacağını bilmeyenler için.</p>
+
+    <div class="who-wrap">
+      <div class="who-card">
+        <div class="who-avatar">D</div>
+        <h3>Bu kim sunuyor?</h3>
+        <p>20+ yıl kurumsal bankacılık. Yüzlerce yatırımcının portföyünü inceledim, analiz ettim, raporladım.</p>
+        <p style="margin-top:12px">Şimdi kendi portföyümü açık yönetiyorum. Her ay performans rakamlarını tam şeffaflıkla paylaşıyorum.</p>
+        <div class="who-quote">
+          "Müşterilere 'şunu al' dedim yıllarca. Şimdi kendi paramla aynı kararları veriyorum — ve herkese açık yapıyorum."
+          <div class="who-quote-author">— D-Club Kurucusu</div>
+        </div>
+      </div>
+
+      <div>
+        <h3 style="font-family:'Syne',sans-serif;font-size:20px;margin-bottom:20px">D-Club senin için mi?</h3>
+        <div class="who-list">
+          <div class="who-item">NASDAQ'a meraklısın ama nereden başlayacağını bilmiyorsun</div>
+          <div class="who-item">Üniversite öğrencisi veya yeni mezunsun</div>
+          <div class="who-item">Kariyerinin başında, yatırım yapmak istiyorsun</div>
+          <div class="who-item">Teori değil, gerçek işlemler görmek istiyorsun</div>
+          <div class="who-item">Türkçe kaynak arıyorsun ama haber çevirisi değil</div>
+          <div class="who-item">Uzun vadeli düşünüyorsun, hızlı zengin olmak istemiyorsun</div>
+        </div>
+
+        <div style="margin-top:32px;padding:20px;background:rgba(232,160,32,.06);border:1px solid rgba(232,160,32,.2);border-radius:12px">
+          <p style="font-size:13px;color:var(--amber);font-weight:600;margin-bottom:8px">⚠️ D-Club senin için DEĞİL eğer:</p>
+          <p style="font-size:13px;color:var(--muted)">Hızlı para kazanmak, sinyal kopyalamak veya günlük trading yapmak istiyorsan. Bu topluluk sabır gerektiren uzun vadeli düşünce için.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section>
+  <div class="container">
+    <div class="section-badge">Üyelik</div>
+    <h2>Önce ücretsiz dene.</h2>
+    <p class="section-sub">Ödeme yapmadan Ana Kanal'a katıl, içeriği gör. Hazır hissettiğinde Members ol.</p>
+
+    <div class="pricing-grid">
+
+      <div class="price-card">
+        <div class="price-label">Ana Kanal</div>
+        <div class="price-num">$0<span>/ay</span></div>
+        <div class="price-period">Sonsuza kadar ücretsiz</div>
+        <div class="price-divider"></div>
+        <div class="price-items">
+          <div class="price-item"><span class="price-item-icon">✅</span>Günlük piyasa haberleri</div>
+          <div class="price-item"><span class="price-item-icon">✅</span>Model portföy raporları</div>
+          <div class="price-item"><span class="price-item-icon">✅</span>Pre-market bildirimi</div>
+          <div class="price-item"><span class="price-item-icon">✅</span>İşlem teaser'ları</div>
+          <div class="price-item" style="opacity:.4"><span class="price-item-icon">🔒</span>Gerçek işlem detayları</div>
+          <div class="price-item" style="opacity:.4"><span class="price-item-icon">🔒</span>BAK analizi</div>
+        </div>
+        <a href="https://dclub-tr.github.io/d-club/" class="price-btn outline">Ücretsiz Katıl</a>
+      </div>
+
+      <div class="price-card featured">
+        <div class="price-label hot">Members · En Popüler</div>
+        <div class="price-num" style="color:var(--accent)">$6.99<span>/ay</span></div>
+        <div class="price-period">veya $69.99/yıl — 2 ay bedava</div>
+        <div class="price-divider"></div>
+        <div class="price-items">
+          <div class="price-item"><span class="price-item-icon">✅</span>Ücretsiz her şey +</div>
+          <div class="price-item"><span class="price-item-icon">✅</span>Gerçek işlem bildirimleri</div>
+          <div class="price-item"><span class="price-item-icon">✅</span>BAK hisse analizi</div>
+          <div class="price-item"><span class="price-item-icon">✅</span>Fırsat raporları</div>
+          <div class="price-item"><span class="price-item-icon">✅</span>Opsiyon portföyü</div>
+          <div class="price-item"><span class="price-item-icon">✅</span>Anket sonuçları</div>
+        </div>
+        <a href="https://whop.com/joined/d-club/" class="price-btn primary">Members Ol</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div class="cta-section">
+  <div class="container">
+    <div class="section-badge">Başla</div>
+    <h2>Bugün katıl,<br>yarın sabah raporunu al.</h2>
+    <p>İlk adım ücretsiz. Disclaimer'ı onayla, bota sor, içeriği gör.</p>
+    <div class="cta-btns">
+      <a href="https://dclub-tr.github.io/d-club/" class="btn-primary">🚀 Ücretsiz Katıl</a>
+      <a href="https://whop.com/joined/d-club/" class="btn-secondary">Members Ol</a>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <p>D-Club · NASDAQ Odaklı Yatırım Topluluğu</p>
+  <p style="margin-top:8px">Bu platform yatırım danışmanlığı hizmeti vermez. Tüm içerikler yalnızca bilgilendirme amaçlıdır.</p>
+</footer>
+
+</body>
+</html>
