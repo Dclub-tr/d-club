@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>D-Club — NASDAQ Yatırım Topluluğu</title>
+<title>D-Club — ABD Borsaları Yatırım Topluluğu</title>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&display=swap" rel="stylesheet" />
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -20,7 +20,7 @@ body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;fon
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;background:rgba(7,9,15,0.88);backdrop-filter:blur(12px);border-bottom:1px solid rgba(28,40,64,0.6)}
 .nav-logo{display:flex;align-items:center;gap:10px}
-.nav-mark{width:32px;height:32px;background:var(--accent);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:15px;color:#fff}
+.nav-mark{width:32px;height:32px;background:var(--accent);border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;color:#fff}
 .nav-name{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:17px;letter-spacing:.02em}
 .nav-cta{background:var(--accent);color:#fff;border:none;border-radius:8px;padding:9px 20px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;cursor:pointer;text-decoration:none;transition:background .2s}
 .nav-cta:hover{background:var(--accent2)}
@@ -33,7 +33,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 24px;display:fl
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
 h1{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(26px,3.8vw,52px);line-height:1.15;letter-spacing:-.02em;margin-bottom:24px;max-width:900px}
 h1 .accent{color:var(--accent)}
-.hero-sub{font-size:clamp(14px,1.8vw,18px);color:var(--muted);max-width:620px;margin:0 auto 44px;line-height:1.8}
+.hero-sub{font-size:clamp(14px,1.8vw,18px);color:var(--muted);max-width:640px;margin:0 auto 44px;line-height:1.8}
 .hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
 .btn-primary{background:var(--accent);color:#fff;border:none;border-radius:10px;padding:15px 32px;font-family:'DM Sans',sans-serif;font-size:16px;font-weight:500;cursor:pointer;text-decoration:none;transition:background .2s,transform .1s}
 .btn-primary:hover{background:var(--accent2)}
@@ -44,16 +44,6 @@ h1 .accent{color:var(--accent)}
 .hero-stat{text-align:center}
 .hero-stat-num{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:32px;line-height:1}
 .hero-stat-label{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-top:6px}
-
-/* SECRETARY CARD */
-.secretary-wrap{display:flex;justify-content:center;padding:0 24px 80px}
-.secretary-card{background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:28px 32px;display:flex;align-items:center;gap:24px;max-width:680px;width:100%}
-.secretary-img{width:80px;height:80px;border-radius:50%;object-fit:cover;border:2px solid var(--border2);flex-shrink:0}
-.secretary-img-placeholder{width:80px;height:80px;border-radius:50%;background:linear-gradient(135deg,var(--accent),#8b5cf6);display:flex;align-items:center;justify-content:center;font-family:'Syne',sans-serif;font-weight:800;font-size:26px;color:#fff;flex-shrink:0}
-.secretary-text h3{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:17px;margin-bottom:6px}
-.secretary-text p{font-size:13px;color:var(--muted);line-height:1.7}
-.secretary-badge{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:5px;margin-top:10px;background:rgba(45,110,245,.12);color:var(--accent);border:1px solid rgba(45,110,245,.2)}
-@media(max-width:600px){.secretary-card{flex-direction:column;text-align:center}}
 
 /* TICKER TAPE */
 .ticker-wrap{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:14px 0;overflow:hidden;position:relative}
@@ -73,19 +63,49 @@ section{padding:96px 24px}
 .container{max-width:1100px;margin:0 auto}
 .section-badge{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
 h2{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:clamp(26px,4vw,42px);line-height:1.15;letter-spacing:-.02em;margin-bottom:16px}
-.section-sub{font-size:17px;color:var(--muted);max-width:540px;line-height:1.7}
+.section-sub{font-size:17px;color:var(--muted);max-width:560px;line-height:1.7}
+
+/* SIGNAL SHOWCASE */
+.signal-section{padding:96px 24px;background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.signal-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-top:56px}
+@media(max-width:900px){.signal-grid{grid-template-columns:1fr}}
+.signal-card{background:var(--bg);border:1px solid var(--border);border-radius:16px;padding:24px;position:relative;overflow:hidden}
+.signal-card.swing{border-color:rgba(29,184,122,.3)}
+.signal-card.day{border-color:rgba(45,110,245,.3)}
+.signal-card.scalp{border-color:rgba(232,160,32,.3)}
+.signal-type{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px}
+.signal-type.swing{color:var(--green)}
+.signal-type.day{color:var(--accent)}
+.signal-type.scalp{color:var(--amber)}
+.signal-ticker{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:28px;margin-bottom:4px}
+.signal-dir{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;padding:4px 10px;border-radius:6px;margin-bottom:16px}
+.signal-dir.buy{background:rgba(29,184,122,.12);color:var(--green);border:1px solid rgba(29,184,122,.2)}
+.signal-dir.sell{background:rgba(232,64,64,.12);color:var(--red);border:1px solid rgba(232,64,64,.2)}
+.signal-rows{display:flex;flex-direction:column;gap:8px}
+.signal-row{display:flex;justify-content:space-between;font-size:12px}
+.signal-row-label{color:var(--muted)}
+.signal-row-val{font-weight:600}
+.signal-row-val.green{color:var(--green)}
+.signal-row-val.red{color:var(--red)}
+.signal-badge{position:absolute;top:16px;right:16px;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 8px;border-radius:6px}
+.signal-badge.strong{background:rgba(29,184,122,.12);color:var(--green);border:1px solid rgba(29,184,122,.2)}
+.signal-reasons{margin-top:14px;padding-top:14px;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:5px}
+.signal-reason{font-size:11px;color:var(--muted)}
 
 /* FEATURES */
 .features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin-top:56px}
 .feat-card{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:28px;transition:border-color .2s}
 .feat-card:hover{border-color:var(--border2)}
 .feat-card.featured{border-color:rgba(45,110,245,.4);background:linear-gradient(135deg,rgba(45,110,245,.06),var(--bg2))}
+.feat-card.signal-feat{border-color:rgba(29,184,122,.3);background:linear-gradient(135deg,rgba(29,184,122,.04),var(--bg2))}
 .feat-icon{width:44px;height:44px;border-radius:10px;background:rgba(45,110,245,.12);border:1px solid rgba(45,110,245,.2);display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:18px}
+.feat-card.signal-feat .feat-icon{background:rgba(29,184,122,.1);border-color:rgba(29,184,122,.2)}
 .feat-card h3{font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;font-size:18px;margin-bottom:10px}
 .feat-card p{font-size:14px;color:var(--muted);line-height:1.7}
 .feat-tag{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:5px;margin-top:14px}
 .feat-tag.members{background:rgba(45,110,245,.12);color:var(--accent);border:1px solid rgba(45,110,245,.2)}
 .feat-tag.free{background:rgba(29,184,122,.1);color:var(--green);border:1px solid rgba(29,184,122,.2)}
+.feat-tag.new{background:rgba(232,160,32,.1);color:var(--amber);border:1px solid rgba(232,160,32,.2)}
 
 /* PRICING */
 .pricing-section{padding:96px 24px;text-align:center}
@@ -103,6 +123,8 @@ h2{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:clamp(26
 .price-items{display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
 .price-item{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--muted)}
 .price-item-icon{font-size:14px;flex-shrink:0;margin-top:1px}
+.price-item.new-feat{color:var(--text)}
+.price-item.new-feat .price-item-icon{color:var(--amber)}
 .price-btn{display:block;width:100%;padding:14px;border-radius:10px;text-align:center;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;text-decoration:none;transition:all .2s;cursor:pointer;border:none}
 .price-btn.primary{background:var(--accent);color:#fff}
 .price-btn.primary:hover{background:var(--accent2)}
@@ -125,6 +147,7 @@ footer p{font-size:12px;color:var(--muted)}
   .btn-primary,.btn-secondary{width:100%;max-width:320px;text-align:center}
   .hero-stat-row{gap:24px}
   .features-grid{grid-template-columns:1fr}
+  .signal-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
@@ -144,19 +167,19 @@ footer p{font-size:12px;color:var(--muted)}
   <div class="hero-grid"></div>
   <div class="hero-badge">
     <span class="hero-badge-dot"></span>
-    Sistem aktif · Günlük rapor yayında
+    Sinyal sistemi aktif · Günlük rapor yayında
   </div>
   <h1>
-    D-Club: <span class="accent">Nasdaq Odaklı</span> ABD Borsaları,<br>
-    Bitcoin, Gümüş ve Altın İçeren<br>
-    Yatırım Takip Platformu
+    ABD Borsalarına <span class="accent">Akıllı Bakış:</span><br>
+    Haberler, Sinyaller ve<br>
+    Gerçek Portföy Takibi
   </h1>
   <p class="hero-sub">
-    D-Club, yetişmek zorunda kalmadığınız, kendi zamanınıza uygun olarak yararlanabileceğiniz, kişiye özel hissi veren bir yatırım topluluğudur.
+    Swing trade ve SPY scalp sinyalleri, günlük piyasa haberleri, gerçek işlem bildirimleri ve AI destekli eğitim — hepsi tek bir Telegram topluluğunda.
   </p>
   <div class="hero-btns">
     <a href="https://dclub-tr.github.io/d-club/" class="btn-primary">🚀 Ücretsiz Katıl</a>
-    <a href="https://whop.com/joined/d-club/" class="btn-secondary">Tam Üyelik — $6.99/ay</a>
+    <a href="https://whop.com/joined/d-club/" class="btn-secondary">💎 Tam Üyelik — $6.99/ay</a>
   </div>
   <div class="hero-stat-row">
     <div class="hero-stat">
@@ -164,8 +187,8 @@ footer p{font-size:12px;color:var(--muted)}
       <div class="hero-stat-label">Toplam Getiri</div>
     </div>
     <div class="hero-stat">
-      <div class="hero-stat-num">3×</div>
-      <div class="hero-stat-label">Günlük Rapor</div>
+      <div class="hero-stat-num">18+</div>
+      <div class="hero-stat-label">Sinyal Ticker</div>
     </div>
     <div class="hero-stat">
       <div class="hero-stat-num">20+</div>
@@ -178,8 +201,6 @@ footer p{font-size:12px;color:var(--muted)}
   </div>
 </section>
 
-
-
 <!-- TICKER TAPE -->
 <div class="ticker-wrap">
   <div class="ticker">
@@ -187,22 +208,143 @@ footer p{font-size:12px;color:var(--muted)}
     <div class="tick-item"><span class="tick-name">SOFI</span><span class="tick-price">$8.12</span><span class="tick-up">+1.8%</span></div>
     <div class="tick-item"><span class="tick-name">AMD</span><span class="tick-price">$162.30</span><span class="tick-dn">-0.6%</span></div>
     <div class="tick-item"><span class="tick-name">RKLB</span><span class="tick-price">$23.50</span><span class="tick-up">+5.2%</span></div>
-    <div class="tick-item"><span class="tick-name">AAPL</span><span class="tick-price">$213.70</span><span class="tick-up">+0.9%</span></div>
+    <div class="tick-item"><span class="tick-name">SPY</span><span class="tick-price">$520.18</span><span class="tick-up">+0.7%</span></div>
     <div class="tick-item"><span class="tick-name">TSLA</span><span class="tick-price">$374.98</span><span class="tick-dn">-1.2%</span></div>
-    <div class="tick-item"><span class="tick-name">BTC/USD</span><span class="tick-price">$76,052</span><span class="tick-dn">-1.7%</span></div>
+    <div class="tick-item"><span class="tick-name">BTC/USD</span><span class="tick-price">$96,052</span><span class="tick-up">+2.1%</span></div>
     <div class="tick-item"><span class="tick-name">PLTR</span><span class="tick-price">$141.45</span><span class="tick-dn">-1.1%</span></div>
-    <div class="tick-item"><span class="tick-name">SLV</span><span class="tick-price">$66.25</span><span class="tick-dn">-3.0%</span></div>
-    <div class="tick-item"><span class="tick-name">MSTR</span><span class="tick-price">$163.20</span><span class="tick-dn">-3.5%</span></div>
+    <div class="tick-item"><span class="tick-name">META</span><span class="tick-price">$584.30</span><span class="tick-up">+1.3%</span></div>
+    <div class="tick-item"><span class="tick-name">MSTR</span><span class="tick-price">$363.20</span><span class="tick-up">+3.5%</span></div>
     <div class="tick-item"><span class="tick-name">NVDA</span><span class="tick-price">$875.40</span><span class="tick-up">+2.4%</span></div>
     <div class="tick-item"><span class="tick-name">SOFI</span><span class="tick-price">$8.12</span><span class="tick-up">+1.8%</span></div>
     <div class="tick-item"><span class="tick-name">AMD</span><span class="tick-price">$162.30</span><span class="tick-dn">-0.6%</span></div>
     <div class="tick-item"><span class="tick-name">RKLB</span><span class="tick-price">$23.50</span><span class="tick-up">+5.2%</span></div>
-    <div class="tick-item"><span class="tick-name">AAPL</span><span class="tick-price">$213.70</span><span class="tick-up">+0.9%</span></div>
+    <div class="tick-item"><span class="tick-name">SPY</span><span class="tick-price">$520.18</span><span class="tick-up">+0.7%</span></div>
     <div class="tick-item"><span class="tick-name">TSLA</span><span class="tick-price">$374.98</span><span class="tick-dn">-1.2%</span></div>
-    <div class="tick-item"><span class="tick-name">BTC/USD</span><span class="tick-price">$76,052</span><span class="tick-dn">-1.7%</span></div>
+    <div class="tick-item"><span class="tick-name">BTC/USD</span><span class="tick-price">$96,052</span><span class="tick-up">+2.1%</span></div>
     <div class="tick-item"><span class="tick-name">PLTR</span><span class="tick-price">$141.45</span><span class="tick-dn">-1.1%</span></div>
-    <div class="tick-item"><span class="tick-name">SLV</span><span class="tick-price">$66.25</span><span class="tick-dn">-3.0%</span></div>
-    <div class="tick-item"><span class="tick-name">MSTR</span><span class="tick-price">$163.20</span><span class="tick-dn">-3.5%</span></div>
+    <div class="tick-item"><span class="tick-name">META</span><span class="tick-price">$584.30</span><span class="tick-up">+1.3%</span></div>
+    <div class="tick-item"><span class="tick-name">MSTR</span><span class="tick-price">$363.20</span><span class="tick-up">+3.5%</span></div>
+  </div>
+</div>
+
+<!-- SİNYAL SİSTEMİ SHOWCASE -->
+<div class="signal-section">
+  <div class="container">
+    <div class="section-badge">Yeni Özellik</div>
+    <h2>Teknik Analiz Sinyalleri<br>Artık D-Club'da</h2>
+    <p class="section-sub">EMA, RSI, VWAP, Hacim ve Candlestick pattern analizi ile üretilen sinyaller — önce admin onayına geliyor, sonra Members kanalına düşüyor.</p>
+
+    <div class="signal-grid">
+
+      <!-- SWING -->
+      <div class="signal-card swing">
+        <div class="signal-badge strong">🔥 Güçlü · 75/100</div>
+        <div class="signal-type swing">📡 Swing Trade Sinyali</div>
+        <div class="signal-ticker">NVDA</div>
+        <div class="signal-dir buy">🟢 AL</div>
+        <div class="signal-rows">
+          <div class="signal-row">
+            <span class="signal-row-label">💰 Giriş Bölgesi</span>
+            <span class="signal-row-val">$118 – $121</span>
+          </div>
+          <div class="signal-row">
+            <span class="signal-row-label">🎯 Hedef 1</span>
+            <span class="signal-row-val green">$132 (+9.9%)</span>
+          </div>
+          <div class="signal-row">
+            <span class="signal-row-label">🎯 Hedef 2</span>
+            <span class="signal-row-val green">$145 (+20.7%)</span>
+          </div>
+          <div class="signal-row">
+            <span class="signal-row-label">🛑 Stop-Loss</span>
+            <span class="signal-row-val red">$110 (-8.3%)</span>
+          </div>
+          <div class="signal-row">
+            <span class="signal-row-label">⚖️ Risk/Ödül</span>
+            <span class="signal-row-val">1:2.4</span>
+          </div>
+        </div>
+        <div class="signal-reasons">
+          <div class="signal-reason">✅ EMA200 üzerinde</div>
+          <div class="signal-reason">✅ RSI: 54 — ideal giriş</div>
+          <div class="signal-reason">✅ Hacim %40 üzerinde</div>
+        </div>
+      </div>
+
+      <!-- DAY TRADE -->
+      <div class="signal-card day">
+        <div class="signal-badge strong">✅ Orta · 70/100</div>
+        <div class="signal-type day">⚡ Day Trade Sinyali</div>
+        <div class="signal-ticker">SOFI</div>
+        <div class="signal-dir buy">🟢 AL (İntraday)</div>
+        <div class="signal-rows">
+          <div class="signal-row">
+            <span class="signal-row-label">💰 Fiyat</span>
+            <span class="signal-row-val">$12.84</span>
+          </div>
+          <div class="signal-row">
+            <span class="signal-row-label">📊 VWAP</span>
+            <span class="signal-row-val">$12.61</span>
+          </div>
+          <div class="signal-row">
+            <span class="signal-row-label">🎯 Hedef</span>
+            <span class="signal-row-val green">$13.20 (+2.8%)</span>
+          </div>
+          <div class="signal-row">
+            <span class="signal-row-label">🛑 Stop</span>
+            <span class="signal-row-val red">$12.55 (-2.3%)</span>
+          </div>
+          <div class="signal-row">
+            <span class="signal-row-label">⚖️ R/R</span>
+            <span class="signal-row-val">1:1.9</span>
+          </div>
+        </div>
+        <div class="signal-reasons">
+          <div class="signal-reason">✅ VWAP üzerinde</div>
+          <div class="signal-reason">✅ RSI: 58 — momentum var</div>
+          <div class="signal-reason">✅ Hacim 1.8x ortalamanın üzerinde</div>
+        </div>
+      </div>
+
+      <!-- SPY SCALP -->
+      <div class="signal-card scalp">
+        <div class="signal-badge" style="background:rgba(232,160,32,.1);color:var(--amber);border:1px solid rgba(232,160,32,.2)">🔥 Güçlü · 85/100</div>
+        <div class="signal-type scalp">⚡⚡ SPY Scalp Sinyali</div>
+        <div class="signal-ticker">SPY</div>
+        <div class="signal-dir buy">🟢 AL (Scalp)</div>
+        <div class="signal-rows">
+          <div class="signal-row">
+            <span class="signal-row-label">💰 Fiyat</span>
+            <span class="signal-row-val">$521.40</span>
+          </div>
+          <div class="signal-row">
+            <span class="signal-row-label">📊 VWAP</span>
+            <span class="signal-row-val">$519.82</span>
+          </div>
+          <div class="signal-row">
+            <span class="signal-row-label">🎯 Hedef</span>
+            <span class="signal-row-val green">$522.85 (+0.28%)</span>
+          </div>
+          <div class="signal-row">
+            <span class="signal-row-label">🛑 Stop</span>
+            <span class="signal-row-val red">$520.63 (-0.15%)</span>
+          </div>
+          <div class="signal-row">
+            <span class="signal-row-label">⚖️ R/R</span>
+            <span class="signal-row-val">1:1.9</span>
+          </div>
+        </div>
+        <div class="signal-reasons">
+          <div class="signal-reason">✅ VWAP üzerinde</div>
+          <div class="signal-reason">✅ ROC +0.18% — ivme artıyor</div>
+          <div class="signal-reason">✅ 🔥 Bullish Engulfing pattern</div>
+          <div class="signal-reason">⏱ 2–15 dakika içinde çıkın</div>
+        </div>
+      </div>
+
+    </div>
+
+    <p style="text-align:center;color:var(--muted);font-size:13px;margin-top:28px">⚠️ Örnek gösterim amaçlıdır. Gerçek sinyaller Pazartesi–Cuma piyasa saatlerinde üretilir. Yatırım tavsiyesi değildir.</p>
   </div>
 </div>
 
@@ -215,10 +357,34 @@ footer p{font-size:12px;color:var(--muted)}
 
     <div class="features-grid">
 
+      <div class="feat-card signal-feat">
+        <div class="feat-icon">📡</div>
+        <h3>Swing Trade Sinyalleri</h3>
+        <p>18+ hisse için günlük teknik analiz taraması. EMA200, RSI, hacim konfirmasyonu — sadece güven skoru 60+ sinyaller iletilir. Giriş, hedef ve stop-loss dahil.</p>
+        <span class="feat-tag new">Yeni</span>
+        <span class="feat-tag members">Tam Üyelik</span>
+      </div>
+
+      <div class="feat-card signal-feat">
+        <div class="feat-icon">⚡</div>
+        <h3>SPY Scalp Sinyalleri</h3>
+        <p>Piyasa saatlerinde her 5 dakikada bir SPY taranır. VWAP, RSI, ROC ve candlestick pattern analizi bir arada. Güven skoru 80+ olan fırsatlar anında iletilir.</p>
+        <span class="feat-tag new">Yeni</span>
+        <span class="feat-tag members">Tam Üyelik</span>
+      </div>
+
+      <div class="feat-card featured">
+        <div class="feat-icon">📚</div>
+        <h3>DERS Komutu — AI Eğitim</h3>
+        <p>Merak ettiğin yatırım kavramını yaz, AI sana sade Türkçe ile açıklasın. EMA, RSI, P/E, stop-loss, candlestick ve daha fazlası — sınır yok.</p>
+        <span class="feat-tag new">Yeni</span>
+        <span class="feat-tag members">Tam Üyelik</span>
+      </div>
+
       <div class="feat-card featured">
         <div class="feat-icon">📊</div>
         <h3>Gerçek İşlem Bildirimleri</h3>
-        <p>Hisse aldığımda veya sattığımda anında bildirim alırsın. Tam detay: ticker, adet, fiyat, gerekçe.</p>
+        <p>Hisse aldığımda veya sattığımda anında bildirim alırsın. Tam detay: ticker, adet, fiyat, gerekçe. Opsiyon işlemleri dahil.</p>
         <span class="feat-tag members">Tam Üyelik</span>
       </div>
 
@@ -232,7 +398,7 @@ footer p{font-size:12px;color:var(--muted)}
       <div class="feat-card">
         <div class="feat-icon">📰</div>
         <h3>Günlük Haber Akışı</h3>
-        <p>10:30, 15:30 ve 20:00'da Türkçe piyasa haberleri. Portföydeki hisselerin şirket haberleri ayrıca gelir.</p>
+        <p>10:30, 15:30 ve 20:00'da Türkçe piyasa haberleri. Jeopolitik gelişmeler, Fed kararları, bilanço sonuçları önceliklendirilir.</p>
         <span class="feat-tag free">Ücretsiz</span>
       </div>
 
@@ -246,35 +412,14 @@ footer p{font-size:12px;color:var(--muted)}
       <div class="feat-card">
         <div class="feat-icon">🎯</div>
         <h3>Fırsat Hisseler</h3>
-        <p>Öne çıkan hisseler için hazırlanmış detaylı raporlar. Neden izliyorum, hedef fiyat nedir?</p>
-        <span class="feat-tag members">Tam Üyelik</span>
-      </div>
-
-      <div class="feat-card">
-        <div class="feat-icon">🗳️</div>
-        <h3>Anketler</h3>
-        <p>Piyasa görüşünü paylaş. Admin tarafından belirlenen anlarda açılır — sonuçlar Tam Üyelere özel.</p>
+        <p>Öne çıkan hisseler için detaylı raporlar. Neden izliyorum, teknik seviyeler, hedef fiyat nedir?</p>
         <span class="feat-tag members">Tam Üyelik</span>
       </div>
 
       <div class="feat-card">
         <div class="feat-icon">📉</div>
         <h3>Opsiyon Portföyü</h3>
-        <p>Opsiyon pozisyonları, kontrat detayları ve anlık durum. Gerçek opsiyon stratejisini takip et.</p>
-        <span class="feat-tag members">Tam Üyelik</span>
-      </div>
-
-      <div class="feat-card featured">
-        <div class="feat-icon">📚</div>
-        <h3>DERS Komutu — AI Eğitim</h3>
-        <p>Merak ettiğin yatırım kavramını yaz, AI sana sade Türkçe ile açıklasın. EMA, RSI, P/E, stop-loss ve daha fazlası — sınır yok.</p>
-        <span class="feat-tag members">Tam Üyelik</span>
-      </div>
-
-      <div class="feat-card">
-        <div class="feat-icon">💬</div>
-        <h3>Üye Sohbet Odası</h3>
-        <p>Diğer üyelerle piyasayı tartış, soru sor, fikir paylaş. Canlı bir topluluk deneyimi.</p>
+        <p>Opsiyon pozisyonları, kontrat detayları ve anlık PnL durumu. Gerçek opsiyon stratejisini takip et.</p>
         <span class="feat-tag members">Tam Üyelik</span>
       </div>
 
@@ -285,7 +430,7 @@ footer p{font-size:12px;color:var(--muted)}
 <!-- PRICING -->
 <div class="pricing-section" style="background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
   <div class="section-badge">Üyelik</div>
-  <p class="pricing-headline">Her Ay Bir Kahve Parasına Vizyonunu Genişlet,<br>Yatırım Yap, Zenginliğin Yolundan Yürü</p>
+  <p class="pricing-headline">Her Ay Bir Kahve Parasına Piyasanın İçinde Ol,<br>Sinyalleri Takip Et, Vizyonunu Genişlet</p>
 
   <div class="pricing-grid">
 
@@ -299,9 +444,10 @@ footer p{font-size:12px;color:var(--muted)}
         <div class="price-item"><span class="price-item-icon">✅</span>Model portföy raporları</div>
         <div class="price-item"><span class="price-item-icon">✅</span>Pre-market bildirimi</div>
         <div class="price-item"><span class="price-item-icon">✅</span>İşlem teaser'ları</div>
-        <div class="price-item"><span class="price-item-icon">✅</span>Anketlere katılım</div>
-        <div class="price-item" style="opacity:.4"><span class="price-item-icon">🔒</span>Gerçek işlem detayları</div>
-        <div class="price-item" style="opacity:.4"><span class="price-item-icon">🔒</span>BAK analizi</div>
+        <div class="price-item"><span class="price-item-icon">✅</span>Sinyal teaser'ları</div>
+        <div class="price-item" style="opacity:.4"><span class="price-item-icon">🔒</span>Gerçek sinyal detayları</div>
+        <div class="price-item" style="opacity:.4"><span class="price-item-icon">🔒</span>BAK analizi & DERS komutu</div>
+        <div class="price-item" style="opacity:.4"><span class="price-item-icon">🔒</span>SPY Scalp sinyalleri</div>
       </div>
       <a href="https://dclub-tr.github.io/d-club/" class="price-btn outline">Ücretsiz Katıl</a>
     </div>
@@ -312,14 +458,15 @@ footer p{font-size:12px;color:var(--muted)}
       <div class="price-period">veya $69.99/yıl — 2 ay bedava</div>
       <div class="price-divider"></div>
       <div class="price-items">
-        <div class="price-item"><span class="price-item-icon">✅</span>Üye Sohbet Odası</div>
         <div class="price-item"><span class="price-item-icon">✅</span>Ücretsiz her şey +</div>
+        <div class="price-item new-feat"><span class="price-item-icon">⭐</span>Swing Trade sinyalleri (18+ hisse)</div>
+        <div class="price-item new-feat"><span class="price-item-icon">⭐</span>SPY Scalp sinyalleri (5dk tarama)</div>
+        <div class="price-item new-feat"><span class="price-item-icon">⭐</span>DERS komutu — AI yatırım eğitimi</div>
         <div class="price-item"><span class="price-item-icon">✅</span>Gerçek işlem bildirimleri</div>
         <div class="price-item"><span class="price-item-icon">✅</span>BAK hisse analizi</div>
-        <div class="price-item"><span class="price-item-icon">✅</span>Fırsat Hisseler</div>
+        <div class="price-item"><span class="price-item-icon">✅</span>Fırsat hissesi raporları</div>
         <div class="price-item"><span class="price-item-icon">✅</span>Opsiyon portföyü</div>
-        <div class="price-item"><span class="price-item-icon">✅</span>Anket sonuçları</div>
-        <div class="price-item"><span class="price-item-icon">✅</span>DERS komutu — AI yatırım eğitimi</div>
+        <div class="price-item"><span class="price-item-icon">✅</span>Üye sohbet odası</div>
       </div>
       <a href="https://whop.com/joined/d-club/" class="price-btn primary">Tam Üyelik Al</a>
     </div>
@@ -332,17 +479,17 @@ footer p{font-size:12px;color:var(--muted)}
   <div class="container">
     <div class="section-badge">Başla</div>
     <h2>Bugün katıl,<br>yarın sabah raporunu al.</h2>
-    <p>İlk adım ücretsiz. Disclaimer'ı onayla, Topluluğa katıl!</p>
+    <p>İlk adım ücretsiz. Disclaimer'ı onayla, topluluğa katıl!</p>
     <div class="cta-btns">
       <a href="https://dclub-tr.github.io/d-club/" class="btn-primary">🚀 Ücretsiz Katıl</a>
-      <a href="https://whop.com/joined/d-club/" class="btn-secondary">Tam Üyelik Al</a>
+      <a href="https://whop.com/joined/d-club/" class="btn-secondary">💎 Tam Üyelik Al</a>
     </div>
   </div>
 </div>
 
 <!-- FOOTER -->
 <footer>
-  <p>D-Club · NASDAQ Odaklı Yatırım Topluluğu</p>
+  <p>D-Club · ABD Borsaları Odaklı Yatırım Topluluğu</p>
   <p style="margin-top:8px">Bu platform yatırım danışmanlığı hizmeti vermez. Tüm içerikler yalnızca bilgilendirme amaçlıdır.</p>
 </footer>
 
