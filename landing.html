@@ -1,170 +1,177 @@
 <!DOCTYPE html>
 <html lang="tr">
 <head>
-<meta charset="UTF-8"/>
-<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>D-Club — ABD Borsaları Yatırım Topluluğu</title>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@700;800&family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&display=swap" rel="stylesheet" />
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 :root{
-  --bg:#07090f;--bg2:#0d1119;--bg3:#111827;--bg4:#141720;
-  --border:#1c2840;--border2:#263552;--border3:#1e2538;
-  --text:#dde6f5;--muted:#4d6a99;--muted2:#5a7099;
-  --accent:#2d6ef5;--accent2:#1a4db8;--accent3:#5b8fff;
-  --green:#1db87a;--green2:#18c97a;
-  --free-bg:rgba(24,201,122,.08);--free-border:rgba(24,201,122,.18);
-  --paid-bg:rgba(45,110,245,.08);--paid-border:rgba(45,110,245,.2);
-  --amber:#e8a020;--red:#e84040;
-  --display:'Plus Jakarta Sans',sans-serif;
-  --mono:'DM Mono',monospace;
-  --sans:'DM Sans',sans-serif;
+  --bg:#07090f;--bg2:#0d1119;--bg3:#111827;
+  --border:#1c2840;--border2:#263552;
+  --text:#dde6f5;--muted:#4d6a99;
+  --accent:#2d6ef5;--accent2:#1a4db8;
+  --green:#1db87a;--amber:#e8a020;--red:#e84040;
 }
 html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.65;overflow-x:hidden}
-
-/* ── NAV ── */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 28px;display:flex;align-items:center;justify-content:space-between;background:rgba(7,9,15,.88);backdrop-filter:blur(14px);border-bottom:1px solid rgba(28,40,64,.6)}
-.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none}
-.nav-mark{width:30px;height:30px;background:var(--accent);border-radius:7px;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:800;font-size:14px;color:#fff}
-.nav-name{font-family:var(--display);font-weight:700;font-size:16px;color:var(--text)}
-.nav-cta{background:var(--accent);color:#fff;border:none;border-radius:8px;padding:9px 20px;font-family:var(--sans);font-size:13px;font-weight:500;cursor:pointer;text-decoration:none;transition:background .2s}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.6;overflow-x:hidden}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;background:rgba(7,9,15,0.88);backdrop-filter:blur(12px);border-bottom:1px solid rgba(28,40,64,0.6)}
+.nav-logo{display:flex;align-items:center;gap:10px}
+.nav-mark{width:32px;height:32px;background:var(--accent);border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;color:#fff}
+.nav-name{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:17px;letter-spacing:.02em}
+.nav-cta{background:var(--accent);color:#fff;border:none;border-radius:8px;padding:9px 20px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;cursor:pointer;text-decoration:none;transition:background .2s}
 .nav-cta:hover{background:var(--accent2)}
 
-/* ── HERO ── */
+/* HERO */
 .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 24px 80px;position:relative;overflow:hidden}
 .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(45,110,245,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(45,110,245,.04) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 80% 60% at 50% 50%,black,transparent);pointer-events:none}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--accent3);border:1px solid rgba(45,110,245,.3);background:rgba(45,110,245,.08);padding:6px 16px;border-radius:20px;margin-bottom:28px}
-.hero-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--green2);animation:pulse 2s infinite}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);border:1px solid rgba(45,110,245,.3);background:rgba(45,110,245,.08);padding:6px 16px;border-radius:20px;margin-bottom:28px}
+.hero-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
-.hero h1{font-family:var(--display);font-weight:800;font-size:clamp(28px,4.2vw,58px);line-height:1.12;letter-spacing:-.025em;margin-bottom:24px;max-width:860px}
-.hero h1 .accent{color:var(--accent3)}
-.hero-sub{font-size:clamp(14px,1.8vw,18px);color:var(--muted);max-width:620px;margin:0 auto 44px;line-height:1.8}
-.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:60px}
-.btn-primary{background:var(--accent);color:#fff;border:none;border-radius:10px;padding:15px 32px;font-family:var(--sans);font-size:16px;font-weight:500;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:background .2s,transform .1s}
+h1{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(26px,3.8vw,52px);line-height:1.15;letter-spacing:-.02em;margin-bottom:24px;max-width:900px}
+h1 .accent{color:var(--accent)}
+.hero-sub{font-size:clamp(14px,1.8vw,18px);color:var(--muted);max-width:640px;margin:0 auto 44px;line-height:1.8}
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.btn-primary{background:var(--accent);color:#fff;border:none;border-radius:10px;padding:15px 32px;font-family:'DM Sans',sans-serif;font-size:16px;font-weight:500;cursor:pointer;text-decoration:none;transition:background .2s,transform .1s}
 .btn-primary:hover{background:var(--accent2)}
 .btn-primary:active{transform:scale(.98)}
-.btn-secondary{background:transparent;color:var(--text);border:1px solid var(--border2);border-radius:10px;padding:15px 32px;font-family:var(--sans);font-size:16px;font-weight:500;cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px;transition:border-color .2s,background .2s}
+.btn-secondary{background:transparent;color:var(--text);border:1px solid var(--border2);border-radius:10px;padding:15px 32px;font-family:'DM Sans',sans-serif;font-size:16px;font-weight:500;cursor:pointer;text-decoration:none;transition:border-color .2s,background .2s}
 .btn-secondary:hover{border-color:var(--accent);background:rgba(45,110,245,.06)}
-.hero-stats{display:flex;gap:0;justify-content:center;flex-wrap:wrap;border:1px solid var(--border);border-radius:16px;overflow:hidden;background:var(--bg2);max-width:640px;width:100%}
-.hero-stat{flex:1;min-width:130px;padding:20px 16px;text-align:center;border-right:1px solid var(--border)}
-.hero-stat:last-child{border-right:none}
-.hero-stat-num{font-family:var(--display);font-weight:800;font-size:28px;line-height:1;margin-bottom:6px}
-.hero-stat-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em}
-.hero-footnote{margin-top:14px;font-size:11px;color:var(--muted);text-align:center}
+.hero-stat-row{display:flex;gap:40px;justify-content:center;flex-wrap:wrap;margin-top:60px;padding-top:60px;border-top:1px solid var(--border)}
+.hero-stat{text-align:center}
+.hero-stat-num{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:32px;line-height:1}
+.hero-stat-label{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-top:6px}
+.hero-footnote{margin-top:20px;font-size:11px;color:var(--muted);text-align:center;max-width:660px;line-height:1.7}
 
-/* ── DIVIDER ── */
-.divider{height:1px;background:var(--border);margin:0}
+/* TICKER BAND */
+.ticker-wrap{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:14px 0;overflow:hidden;position:relative}
+.ticker-wrap::before,.ticker-wrap::after{content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2}
+.ticker-wrap::before{left:0;background:linear-gradient(90deg,var(--bg2),transparent)}
+.ticker-wrap::after{right:0;background:linear-gradient(270deg,var(--bg2),transparent)}
+.ticker{display:flex;gap:48px;animation:scroll 35s linear infinite;width:max-content}
+.ticker:hover{animation-play-state:paused}
+@keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+.tick-item{display:flex;align-items:center;gap:10px;font-size:13px;white-space:nowrap}
+.tick-name{font-weight:600;color:var(--text)}
+.tick-price{color:var(--muted)}
+.tick-up{color:var(--green)}
+.tick-dn{color:var(--red)}
+.ticker-ts{text-align:center;font-size:11px;color:var(--muted);padding:6px 0 2px;opacity:.6}
 
-/* ── CONTENT SECTION ── */
-.content{max-width:1100px;margin:0 auto;padding:56px 32px 80px}
-.content-title{font-family:var(--display);font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--muted2);text-align:center;margin-bottom:40px}
-
-/* ── GRID ── */
-.grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start}
-@media(max-width:720px){.grid{grid-template-columns:1fr}}
-
-/* ── COLUMN ── */
-.col{border-radius:16px;overflow:hidden;border:1px solid var(--border)}
-.col-free{border-color:var(--free-border)}
-.col-paid{border-color:var(--paid-border)}
-.col-header{padding:20px 24px 18px;border-bottom:1px solid var(--border)}
-.col-free .col-header{background:linear-gradient(135deg,rgba(24,201,122,.06),transparent)}
-.col-paid .col-header{background:linear-gradient(135deg,rgba(45,110,245,.07),transparent)}
-.col-title{font-size:17px;font-weight:600;letter-spacing:-.01em;margin-bottom:4px}
-.col-price{font-size:13px;color:var(--muted2)}
-.col-price strong{color:var(--text)}
-
-/* ── COLUMN BUTONLAR ── */
-.col-btns{padding:16px 24px;border-top:1px solid var(--border);background:rgba(0,0,0,.15)}
-.col-btn{display:block;width:100%;padding:11px 16px;border-radius:9px;text-align:center;font-family:var(--sans);font-size:14px;font-weight:500;text-decoration:none;transition:all .2s;cursor:pointer;border:none}
-.col-btn-free{background:var(--green2);color:#fff}
-.col-btn-free:hover{opacity:.88}
-.col-btn-paid{background:var(--accent);color:#fff}
-.col-btn-paid:hover{background:var(--accent2)}
-
-/* ── SECTION ── */
-.section{padding:0 24px}
-.section:first-of-type{padding-top:20px}
-.section-title{font-size:10px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:16px 0 8px;border-bottom:1px solid var(--border);margin-bottom:2px}
-
-/* ── ITEM ── */
-.item{display:flex;align-items:flex-start;gap:12px;padding:10px 0;border-bottom:1px solid rgba(28,32,53,.6)}
-.item:last-child{border-bottom:none}
-.item-icon{font-size:15px;flex-shrink:0;margin-top:1px;width:20px;text-align:center}
-.item-title{font-size:14px;font-weight:500;color:var(--text);line-height:1.4}
-.item-desc{font-size:12px;color:var(--muted2);line-height:1.55;margin-top:2px}
-.item-cmd{display:inline-block;font-family:var(--mono);font-size:11px;background:var(--bg3);border:1px solid var(--border2);color:var(--accent3);padding:1px 7px;border-radius:4px;margin-top:4px}
-.item-cmd+.item-cmd{margin-left:4px}
-
-/* ── BADGE ── */
-.badge{display:inline-block;font-size:9px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:2px 7px;border-radius:4px;vertical-align:middle;margin-left:5px}
-.badge-new{background:rgba(232,160,32,.08);color:var(--amber);border:1px solid rgba(232,160,32,.18)}
-.badge-auto{background:rgba(120,100,220,.08);color:#9988ee;border:1px solid rgba(120,100,220,.18)}
-
-/* ── BOTTOM CTA ── */
-.bottom-cta{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:64px 24px;text-align:center}
-.bottom-cta h2{font-family:var(--display);font-weight:800;font-size:clamp(22px,3.5vw,36px);letter-spacing:-.02em;margin-bottom:12px}
-.bottom-cta p{color:var(--muted2);font-size:16px;margin-bottom:36px;max-width:500px;margin-left:auto;margin-right:auto}
-.bottom-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-
-/* ── DISCLAIMER ── */
-.disclaimer{max-width:1100px;margin:0 auto;padding:28px 32px;font-size:11px;color:var(--muted);line-height:1.7}
-.disclaimer strong{color:var(--amber)}
-
-/* ── FOOTER ── */
-footer{padding:32px 24px;text-align:center;border-top:1px solid var(--border)}
+/* SECTIONS */
+section{padding:96px 24px}
+.container{max-width:1100px;margin:0 auto}
+.section-badge{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
+h2{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:clamp(26px,4vw,42px);line-height:1.15;letter-spacing:-.02em;margin-bottom:16px}
+.section-sub{font-size:17px;color:var(--muted);max-width:560px;line-height:1.7}
+.signal-section{padding:96px 24px;background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.signal-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:20px;margin-top:56px}
+@media(max-width:900px){.signal-grid{grid-template-columns:1fr}}
+.signal-card{background:var(--bg);border:1px solid var(--border);border-radius:16px;padding:24px;position:relative;overflow:hidden}
+.signal-card.swing{border-color:rgba(29,184,122,.3)}
+.signal-card.day{border-color:rgba(45,110,245,.3)}
+.signal-card.scalp{border-color:rgba(232,160,32,.3)}
+.signal-type{font-size:10px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;margin-bottom:12px}
+.signal-type.swing{color:var(--green)}
+.signal-type.day{color:var(--accent)}
+.signal-type.scalp{color:var(--amber)}
+.signal-ticker{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:28px;margin-bottom:4px}
+.signal-dir{display:inline-flex;align-items:center;gap:6px;font-size:13px;font-weight:600;padding:4px 10px;border-radius:6px;margin-bottom:16px}
+.signal-dir.buy{background:rgba(29,184,122,.12);color:var(--green);border:1px solid rgba(29,184,122,.2)}
+.signal-rows{display:flex;flex-direction:column;gap:8px}
+.signal-row{display:flex;justify-content:space-between;font-size:12px}
+.signal-row-label{color:var(--muted)}
+.signal-row-val{font-weight:600}
+.signal-row-val.green{color:var(--green)}
+.signal-row-val.red{color:var(--red)}
+.signal-badge{position:absolute;top:16px;right:16px;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 8px;border-radius:6px}
+.signal-badge.strong{background:rgba(29,184,122,.12);color:var(--green);border:1px solid rgba(29,184,122,.2)}
+.signal-reasons{margin-top:14px;padding-top:14px;border-top:1px solid var(--border);display:flex;flex-direction:column;gap:5px}
+.signal-reason{font-size:11px;color:var(--muted)}
+.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin-top:56px}
+.feat-card{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:28px;transition:border-color .2s}
+.feat-card:hover{border-color:var(--border2)}
+.feat-card.featured{border-color:rgba(45,110,245,.4);background:linear-gradient(135deg,rgba(45,110,245,.06),var(--bg2))}
+.feat-card.signal-feat{border-color:rgba(29,184,122,.3);background:linear-gradient(135deg,rgba(29,184,122,.04),var(--bg2))}
+.feat-icon{width:44px;height:44px;border-radius:10px;background:rgba(45,110,245,.12);border:1px solid rgba(45,110,245,.2);display:flex;align-items:center;justify-content:center;font-size:20px;margin-bottom:18px}
+.feat-card.signal-feat .feat-icon{background:rgba(29,184,122,.1);border-color:rgba(29,184,122,.2)}
+.feat-card h3{font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;font-size:18px;margin-bottom:10px}
+.feat-card p{font-size:14px;color:var(--muted);line-height:1.7}
+.feat-tag{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:5px;margin-top:14px;margin-right:4px}
+.feat-tag.members{background:rgba(45,110,245,.12);color:var(--accent);border:1px solid rgba(45,110,245,.2)}
+.feat-tag.free{background:rgba(29,184,122,.1);color:var(--green);border:1px solid rgba(29,184,122,.2)}
+.feat-tag.new{background:rgba(232,160,32,.1);color:var(--amber);border:1px solid rgba(232,160,32,.2)}
+.pricing-section{padding:96px 24px;text-align:center}
+.pricing-headline{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:clamp(20px,3vw,32px);line-height:1.3;color:var(--text);max-width:700px;margin:0 auto 56px}
+.pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:720px;margin:0 auto}
+@media(max-width:600px){.pricing-grid{grid-template-columns:1fr}}
+.price-card{background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:32px;text-align:left}
+.price-card.featured{border-color:rgba(45,110,245,.5);background:linear-gradient(160deg,rgba(45,110,245,.08),var(--bg2))}
+.price-label{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
+.price-label.hot{color:var(--accent)}
+.price-num{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:42px;line-height:1;margin-bottom:6px}
+.price-num span{font-size:18px;font-weight:400;color:var(--muted)}
+.price-period{font-size:13px;color:var(--muted);margin-bottom:24px}
+.price-divider{height:1px;background:var(--border);margin-bottom:20px}
+.price-items{display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
+.price-item{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--muted)}
+.price-item-icon{font-size:14px;flex-shrink:0;margin-top:1px}
+.price-item.new-feat{color:var(--text)}
+.price-item.new-feat .price-item-icon{color:var(--amber)}
+.price-btn{display:block;width:100%;padding:14px;border-radius:10px;text-align:center;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;text-decoration:none;transition:all .2s;cursor:pointer;border:none}
+.price-btn.primary{background:var(--accent);color:#fff}
+.price-btn.primary:hover{background:var(--accent2)}
+.price-btn.outline{background:transparent;color:var(--text);border:1px solid var(--border2)}
+.price-btn.outline:hover{border-color:var(--accent);background:rgba(45,110,245,.06)}
+.cta-section{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);text-align:center;padding:96px 24px}
+.cta-section h2{max-width:600px;margin:0 auto 16px}
+.cta-section p{color:var(--muted);margin-bottom:40px;font-size:17px}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+footer{padding:40px 24px;text-align:center;border-top:1px solid var(--border)}
 footer p{font-size:12px;color:var(--muted)}
-
-/* ── RESPONSIVE ── */
 @media(max-width:600px){
   .hero-btns{flex-direction:column;align-items:center}
-  .btn-primary,.btn-secondary{width:100%;max-width:320px;justify-content:center}
-  .hero-stats{flex-wrap:wrap}
-  .hero-stat{min-width:50%;border-bottom:1px solid var(--border)}
+  .btn-primary,.btn-secondary{width:100%;max-width:320px;text-align:center}
+  .hero-stat-row{gap:24px}
+  .features-grid{grid-template-columns:1fr}
+  .signal-grid{grid-template-columns:1fr}
 }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
-  <a href="#" class="nav-logo">
+  <div class="nav-logo">
     <div class="nav-mark">D</div>
     <span class="nav-name">D-Club</span>
-  </a>
+  </div>
   <a href="https://dclub-tr.github.io/d-club/" class="nav-cta">Ücretsiz Katıl</a>
 </nav>
 
 <!-- HERO -->
 <section class="hero">
   <div class="hero-grid"></div>
-
   <div class="hero-badge">
     <span class="hero-badge-dot"></span>
     Sinyal sistemi aktif · Günlük rapor yayında
   </div>
-
   <h1>
-    D-Club: <span class="accent">Akıllı, Telaşsız</span><br>
-    ve Bilgilendirici<br>
-    Yatırım Topluluğu
+    Canlı yayına yetişmek<br>
+    zorunda <span class="accent">değilsin.</span>
   </h1>
-
   <p class="hero-sub">
-    D-Club kişiye özel hissi verir. Birşeye yetişme, takip etme gibi telaşlar yoktur.
-    Dilediğiniz zaman ve dilediğiniz şekilde faydalanabileceğiniz bir platformdur.
+    Discord'u takip etmek zorunda değilsin. D-Club senin temponda çalışır.<br>
+    ABD borsasını öğren — hazır olduğunda, istediğin zaman.
   </p>
-
   <div class="hero-btns">
-    <a href="https://dclub-tr.github.io/d-club/" class="btn-primary">🚀 Ücretsiz Katıl</a>
+    <a href="https://dclub-tr.github.io/d-club/" class="btn-primary">🚀 Ücretsiz Başla</a>
     <a href="https://whop.com/joined/d-club/" class="btn-secondary">💎 Tam Üyelik — $6.99/ay</a>
   </div>
-
-  <div class="hero-stats">
+  <div class="hero-stat-row">
     <div class="hero-stat">
-      <div class="hero-stat-num" style="color:var(--green2)">+%350.5*</div>
-      <div class="hero-stat-label">Toplam Getiri</div>
+      <div class="hero-stat-num" style="color:var(--green)">+%349*</div>
+      <div class="hero-stat-label">Model Portföy Getirisi</div>
     </div>
     <div class="hero-stat">
       <div class="hero-stat-num">18+</div>
@@ -175,284 +182,223 @@ footer p{font-size:12px;color:var(--muted)}
       <div class="hero-stat-label">Yıl Deneyim</div>
     </div>
     <div class="hero-stat">
-      <div class="hero-stat-num" style="color:var(--accent3)">7/24</div>
+      <div class="hero-stat-num" style="color:var(--accent)">7/24</div>
       <div class="hero-stat-label">Bot Aktif</div>
     </div>
   </div>
-
-  <p class="hero-footnote">* 11 Mayıs 2026 tarihi itibarıyla, D-Club Model Portföyü 2 yıllık getiri oranıdır.</p>
+  <p class="hero-footnote">
+    * D-Club Model Portföyü'nün Mayıs 2024 – Mayıs 2026 dönemine ait 2 yıllık kümülatif getiri oranıdır.
+    Geçmiş performans gelecekteki sonuçları garanti etmez. Bu platform yatırım tavsiyesi vermez.
+  </p>
 </section>
 
-<div class="divider"></div>
+<!-- TICKER BAND -->
+<div class="ticker-wrap">
+  <div class="ticker" id="tickerTrack">
+    <span style="color:var(--muted);font-size:13px;padding:0 24px">Fiyatlar yükleniyor…</span>
+  </div>
+</div>
+<div class="ticker-ts" id="tickerTs"></div>
 
-<!-- İÇERİK -->
-<div class="content">
-  <div class="content-title">D-Club Neler Sunar?</div>
+<script>
+(function(){
+  var ENDPOINT = 'https://script.google.com/macros/s/AKfycbxV8fvUqHSsPdQcIj3xUs-FDJoQfICqgX2t0cwyMjmm64cvy2iq1JQt4PHGLjN1K_Wy/exec?action=ticker';
+  var track    = document.getElementById('tickerTrack');
+  var tsEl     = document.getElementById('tickerTs');
 
-  <div class="grid">
+  function fmt(n){
+    if(n>=1000) return '$'+n.toLocaleString('en-US',{maximumFractionDigits:0});
+    return '$'+n.toFixed(2);
+  }
 
-    <!-- ══ SOL: ÜCRETSİZ ══ -->
-    <div class="col col-free">
-      <div class="col-header">
-        <div class="col-title">📢 D-Club Ana Kanal</div>
-        <div class="col-price"><strong>Ücretsiz</strong> · Sonsuza kadar</div>
-      </div>
+  function build(data){
+    var html='';
+    for(var k=0;k<2;k++){
+      data.forEach(function(d){
+        var cls = d.chg>=0?'tick-up':'tick-dn';
+        var sgn = d.chg>=0?'+':'';
+        html+='<div class="tick-item">'+
+          '<span class="tick-name">'+d.sym+'</span>'+
+          '<span class="tick-price">'+fmt(d.price)+'</span>'+
+          '<span class="'+cls+'">'+sgn+d.chg.toFixed(2)+'%</span>'+
+          '</div>';
+      });
+    }
+    track.innerHTML = html;
+  }
 
-      <!-- BUTON -->
-      <div class="col-btns">
-        <a href="https://dclub-tr.github.io/d-club/" class="col-btn col-btn-free">🚀 Ücretsiz Katıl</a>
-      </div>
+  function load(){
+    fetch(ENDPOINT)
+      .then(function(r){return r.json();})
+      .then(function(res){
+        if(res.data && res.data.length>0){
+          build(res.data);
+          if(res.ts){
+            var d = new Date(res.ts);
+            tsEl.textContent = 'Son güncelleme: '+d.toLocaleString('tr-TR',{hour:'2-digit',minute:'2-digit',day:'2-digit',month:'2-digit'});
+          }
+        }
+      })
+      .catch(function(){
+        // Endpoint henuz dolmamissa sessizce gec
+        track.innerHTML='';
+      });
+  }
 
-      <div class="section">
-        <div class="section-title">Model Portföy Raporları</div>
-        <div class="item">
-          <span class="item-icon">🌅</span>
-          <div>
-            <div class="item-title">Pre-Market Bildirimi <span class="badge badge-auto">Otomatik</span></div>
-            <div class="item-desc">Hafta içi 11:30 — piyasa açılmadan öne çıkan hisseler ve beklentiler.</div>
-          </div>
-        </div>
-        <div class="item">
-          <span class="item-icon">💼</span>
-          <div>
-            <div class="item-title">Portföy Açılış Raporu <span class="badge badge-auto">Otomatik</span></div>
-            <div class="item-desc">Hafta içi 16:31 — günlük başlangıç değerleri, hisse bazlı durum.</div>
-          </div>
-        </div>
-        <div class="item">
-          <span class="item-icon">📈</span>
-          <div>
-            <div class="item-title">Portföy Piyasa Raporu <span class="badge badge-auto">Otomatik</span></div>
-            <div class="item-desc">Hafta içi 19:00 — anlık durum ve öne çıkan hareketler.</div>
-          </div>
-        </div>
-        <div class="item">
-          <span class="item-icon">🔒</span>
-          <div>
-            <div class="item-title">Portföy Kapanış Raporu <span class="badge badge-auto">Otomatik</span></div>
-            <div class="item-desc">Hafta içi 22:59 — günlük kapanış, toplam getiri, hisse bazlı performans.</div>
-          </div>
-        </div>
-      </div>
+  load();
+})();
+</script>
 
-      <div class="section">
-        <div class="section-title">Günlük Haberler</div>
-        <div class="item">
-          <span class="item-icon">📰</span>
-          <div>
-            <div class="item-title">Şirket Haberleri <span class="badge badge-auto">Otomatik</span></div>
-            <div class="item-desc">Hafta içi 10:30 — portföy hisseleriyle ilgili sabah haberleri.</div>
-          </div>
+<!-- SİNYAL SHOWCASE -->
+<div class="signal-section">
+  <div class="container">
+    <div class="section-badge">Yeni Özellik</div>
+    <h2>Swing ve SPY Odaklı Scalp Trading<br>Sinyallerimiz Eğitici Amaçlıdır.</h2>
+    <p class="section-sub">EMA, RSI, VWAP, Hacim ve Candlestick pattern analizi ile üretilen sinyaller — önce admin onayına geliyor, sonra Members kanalına düşüyor.</p>
+    <p style="margin-top:12px;font-size:12px;color:var(--muted);max-width:560px">⚠️ Bu sinyaller yalnızca eğitim ve bilgilendirme amaçlıdır. Yatırım tavsiyesi niteliği taşımaz.</p>
+    <div class="signal-grid">
+      <div class="signal-card swing">
+        <div class="signal-badge strong">🔥 Güçlü · 75/100</div>
+        <div class="signal-type swing">📡 Swing Trade Sinyali</div>
+        <div class="signal-ticker">NVDA</div>
+        <div class="signal-dir buy">🟢 AL</div>
+        <div class="signal-rows">
+          <div class="signal-row"><span class="signal-row-label">💰 Giriş Bölgesi</span><span class="signal-row-val">$118 – $121</span></div>
+          <div class="signal-row"><span class="signal-row-label">🎯 Hedef 1</span><span class="signal-row-val green">$132 (+9.9%)</span></div>
+          <div class="signal-row"><span class="signal-row-label">🎯 Hedef 2</span><span class="signal-row-val green">$145 (+20.7%)</span></div>
+          <div class="signal-row"><span class="signal-row-label">🛑 Stop-Loss</span><span class="signal-row-val red">$110 (-8.3%)</span></div>
+          <div class="signal-row"><span class="signal-row-label">⚖️ Risk/Ödül</span><span class="signal-row-val">1:2.4</span></div>
         </div>
-        <div class="item">
-          <span class="item-icon">☀️</span>
-          <div>
-            <div class="item-title">Öğle Haberleri <span class="badge badge-auto">Otomatik</span></div>
-            <div class="item-desc">Hafta içi 15:30 — Fed, bilanço, jeopolitik öne çıkan gelişmeler.</div>
-          </div>
-        </div>
-        <div class="item">
-          <span class="item-icon">🌙</span>
-          <div>
-            <div class="item-title">Akşam Haberleri <span class="badge badge-auto">Otomatik</span></div>
-            <div class="item-desc">Her gün 20:00 (hafta sonu dahil) — günün kapsamlı haber özeti.</div>
-          </div>
-        </div>
-        <div class="item">
-          <span class="item-icon">💰</span>
-          <div>
-            <div class="item-title">Temettü Takvimi <span class="badge badge-auto">Aylık</span></div>
-            <div class="item-desc">Her ayın son iş günü — bir sonraki aya ait temettü ödemeleri.</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="section">
-        <div class="section-title">Teaser'lar & Anketler</div>
-        <div class="item">
-          <span class="item-icon">📣</span>
-          <div>
-            <div class="item-title">İşlem & Sinyal Teaser'ları</div>
-            <div class="item-desc">Admin alım/satım veya sinyal üretildiğinde kısa duyuru. Detaylar Members'tadır.</div>
-          </div>
-        </div>
-        <div class="item">
-          <span class="item-icon">🗳️</span>
-          <div>
-            <div class="item-title">Piyasa Anketleri</div>
-            <div class="item-desc">Oy kullanabilirsin. Sonuçlar Members kanalında açıklanır.</div>
-          </div>
+        <div class="signal-reasons">
+          <div class="signal-reason">✅ EMA200 üzerinde</div>
+          <div class="signal-reason">✅ RSI: 54 — ideal giriş</div>
+          <div class="signal-reason">✅ Hacim %40 üzerinde</div>
         </div>
       </div>
-
-    </div><!-- /col-free -->
-
-
-    <!-- ══ SAĞ: MEMBERS ══ -->
-    <div class="col col-paid">
-      <div class="col-header">
-        <div class="col-title">💎 D-Club Members</div>
-        <div class="col-price"><strong>$6.99/ay</strong> · veya $69.99/yıl (2 ay bedava)</div>
-      </div>
-
-      <!-- BUTON -->
-      <div class="col-btns">
-        <a href="https://whop.com/joined/d-club/" class="col-btn col-btn-paid">💎 Tam Üyelik Al</a>
-      </div>
-
-      <!-- SİNYALLER -->
-      <div class="section">
-        <div class="section-title">Trade Sinyalleri <span class="badge badge-new">Yeni</span></div>
-        <div class="item">
-          <span class="item-icon">📡</span>
-          <div>
-            <div class="item-title">Swing Trade Sinyalleri</div>
-            <div class="item-desc">18+ hisse, hafta içi her sabah 10:00 taranır. Giriş bölgesi, 2 hedef, stop-loss, risk/ödül oranı. EMA200 + RSI (40–60) + Hacim konfirmasyonu. Güven 60+ sinyaller iletilir.</div>
-            <div class="item-cmd">Süre: 2–4 hafta</div>
-          </div>
+      <div class="signal-card day">
+        <div class="signal-badge strong">✅ Orta · 70/100</div>
+        <div class="signal-type day">⚡ Day Trade Sinyali</div>
+        <div class="signal-ticker">SOFI</div>
+        <div class="signal-dir buy">🟢 AL (İntraday)</div>
+        <div class="signal-rows">
+          <div class="signal-row"><span class="signal-row-label">💰 Fiyat</span><span class="signal-row-val">$12.84</span></div>
+          <div class="signal-row"><span class="signal-row-label">📊 VWAP</span><span class="signal-row-val">$12.61</span></div>
+          <div class="signal-row"><span class="signal-row-label">🎯 Hedef</span><span class="signal-row-val green">$13.20 (+2.8%)</span></div>
+          <div class="signal-row"><span class="signal-row-label">🛑 Stop</span><span class="signal-row-val red">$12.55 (-2.3%)</span></div>
+          <div class="signal-row"><span class="signal-row-label">⚖️ R/R</span><span class="signal-row-val">1:1.9</span></div>
         </div>
-        <div class="item">
-          <span class="item-icon">⚡⚡</span>
-          <div>
-            <div class="item-title">SPY Scalp Sinyalleri</div>
-            <div class="item-desc">Piyasa saatlerinde (16:30–23:00) her 5 dakikada SPY taranır. VWAP + RSI + ROC + Candlestick pattern. Güven 80+ gerekli.</div>
-            <div class="item-cmd">Süre: 2–15 dakika</div>
-          </div>
-        </div>
-        <div class="item">
-          <span class="item-icon">⚡</span>
-          <div>
-            <div class="item-title">Day Trade Sinyalleri</div>
-            <div class="item-desc">Piyasa saatlerinde 4 kez taranır (16:45, 17:30, 18:30, 19:30). VWAP üzeri + RSI (50–65) + hacim spike.</div>
-            <div class="item-cmd">Aynı gün çıkış</div>
-          </div>
-        </div>
-        <div class="item">
-          <span class="item-icon">📊</span>
-          <div>
-            <div class="item-title">Haftalık Backtest Raporu <span class="badge badge-auto">Her Pazar 17:00</span></div>
-            <div class="item-desc">Aktif sinyallerin performansı. "$1.000 olsaydı ne olurdu?" simülasyonu, başarı oranı.</div>
-          </div>
+        <div class="signal-reasons">
+          <div class="signal-reason">✅ VWAP üzerinde</div>
+          <div class="signal-reason">✅ RSI: 58 — momentum var</div>
+          <div class="signal-reason">✅ Hacim 1.8x ortalama üzerinde</div>
         </div>
       </div>
-
-      <!-- ADMİN İŞLEMLERİ -->
-      <div class="section">
-        <div class="section-title">Admin Gerçek İşlemler</div>
-        <div class="item">
-          <span class="item-icon">💼</span>
-          <div>
-            <div class="item-title">Hisse Alım/Satım Bildirimleri</div>
-            <div class="item-desc">Her gerçek işlemde tam detay: ticker, adet, fiyat ve işlem gerekçesi.</div>
-          </div>
+      <div class="signal-card scalp">
+        <div class="signal-badge" style="background:rgba(232,160,32,.1);color:var(--amber);border:1px solid rgba(232,160,32,.2)">🔥 Güçlü · 85/100</div>
+        <div class="signal-type scalp">⚡⚡ SPY Scalp Sinyali</div>
+        <div class="signal-ticker">SPY</div>
+        <div class="signal-dir buy">🟢 AL (Scalp)</div>
+        <div class="signal-rows">
+          <div class="signal-row"><span class="signal-row-label">💰 Fiyat</span><span class="signal-row-val">$521.40</span></div>
+          <div class="signal-row"><span class="signal-row-label">📊 VWAP</span><span class="signal-row-val">$519.82</span></div>
+          <div class="signal-row"><span class="signal-row-label">🎯 Hedef</span><span class="signal-row-val green">$522.85 (+0.28%)</span></div>
+          <div class="signal-row"><span class="signal-row-label">🛑 Stop</span><span class="signal-row-val red">$520.63 (-0.15%)</span></div>
+          <div class="signal-row"><span class="signal-row-label">⚖️ R/R</span><span class="signal-row-val">1:1.9</span></div>
         </div>
-        <div class="item">
-          <span class="item-icon">📉</span>
-          <div>
-            <div class="item-title">Opsiyon İşlem Bildirimleri</div>
-            <div class="item-desc">Kontrat tipi, strike, vade, lot, prim ve gerekçe tam olarak paylaşılır.</div>
-          </div>
-        </div>
-        <div class="item">
-          <span class="item-icon">📋</span>
-          <div>
-            <div class="item-title">Opsiyon Portföyü — Anlık PnL</div>
-            <div class="item-desc">Tüm açık opsiyon pozisyonları ve anlık kar/zarar durumu.</div>
-          </div>
-        </div>
-        <div class="item">
-          <span class="item-icon">🎯</span>
-          <div>
-            <div class="item-title">Fırsat Hissesi Raporları</div>
-            <div class="item-desc">Özel hisseler için detaylı rapor: neden takip ediyorum, teknik seviyeler, hedef fiyat.</div>
-          </div>
+        <div class="signal-reasons">
+          <div class="signal-reason">✅ VWAP üzerinde</div>
+          <div class="signal-reason">✅ ROC +0.18% — ivme artıyor</div>
+          <div class="signal-reason">✅ 🔥 Bullish Engulfing pattern</div>
+          <div class="signal-reason">⏱ 2–15 dakika içinde çıkın</div>
         </div>
       </div>
-
-      <!-- BAK -->
-      <div class="section">
-        <div class="section-title">BAK Komutu — Hisse Analizi</div>
-        <div class="item">
-          <span class="item-icon">🔍</span>
-          <div>
-            <div class="item-title">Anlık Teknik Analiz</div>
-            <div class="item-desc">Members grubuna yaz → bot gruba özet, sana DM tam rapor gönderir. Ticker veya şirket adıyla çalışır.</div>
-            <div class="item-cmd">BAK NVDA</div>
-            <div class="item-cmd">BAK microsoft</div>
-          </div>
-        </div>
-        <div class="item">
-          <span class="item-icon">📐</span>
-          <div>
-            <div class="item-title">Rapor İçeriği</div>
-            <div class="item-desc">
-              · Fiyat, hacim, 52 haftalık aralık<br>
-              · Son haberler + AI sentiment analizi<br>
-              · EMA50 / EMA100 / EMA200<br>
-              · RSI(14) + MACD<br>
-              · Fibonacci destek/direnç seviyeleri<br>
-              · P/E, PEG değerleme oranları<br>
-              · Analist konsensüsü + hedef fiyat
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- SOHBET -->
-      <div class="section">
-        <div class="section-title">Üye Sohbet Kanalı</div>
-        <div class="item">
-          <span class="item-icon">💬</span>
-          <div>
-            <div class="item-title">Özel Tartışma Grubu</div>
-            <div class="item-desc">Hisse yorumları, soru-cevap, analiz paylaşımı. AI moderasyon ile spam filtrelenir.</div>
-          </div>
-        </div>
-        <div class="item">
-          <span class="item-icon">🗳️</span>
-          <div>
-            <div class="item-title">Anket Sonuçları</div>
-            <div class="item-desc">Tüm anket sonuçlarını ve dağılımını görme hakkı.</div>
-          </div>
-        </div>
-      </div>
-
-      <!-- EĞİTİM -->
-      <div class="section">
-        <div class="section-title">Eğitim <span class="badge badge-new">Yeni</span></div>
-        <div class="item">
-          <span class="item-icon">📚</span>
-          <div>
-            <div class="item-title">DERS Komutu — AI Yatırım Eğitimi</div>
-            <div class="item-desc">Merak ettiğin yatırım kavramını sor, Claude AI sade Türkçe ile açıklasın. Sınırsız soru, yargısız ortam.</div>
-            <div class="item-cmd">DERS RSI nedir?</div>
-            <div class="item-cmd">DERS stop-loss nasıl belirlenir?</div>
-          </div>
-        </div>
-      </div>
-
-    </div><!-- /col-paid -->
-
-  </div><!-- /grid -->
-</div><!-- /content -->
-
-<!-- ALT CTA -->
-<div class="bottom-cta">
-  <h2>Bugün Katıl, Yarın Sabah<br>Raporunu Al.</h2>
-  <p>İlk adım ücretsiz. Uzun formlar yok, karmaşık kurulum yok.</p>
-  <div class="bottom-btns">
-    <a href="https://dclub-tr.github.io/d-club/" class="btn-primary">🚀 Ücretsiz Katıl</a>
-    <a href="https://whop.com/joined/d-club/" class="btn-secondary">💎 Tam Üyelik — $6.99/ay</a>
+    </div>
+    <p style="text-align:center;color:var(--muted);font-size:13px;margin-top:28px">⚠️ Örnek gösterim amaçlıdır. Gerçek sinyaller Pazartesi–Cuma piyasa saatlerinde üretilir.</p>
   </div>
 </div>
 
-<!-- DİSCLAIMER + FOOTER -->
-<div class="disclaimer">
-  <strong>⚠️ Önemli Uyarı:</strong> D-Club yatırım danışmanlığı hizmeti vermez. Tüm içerikler yalnızca eğitim ve bilgilendirme amaçlıdır. Sinyaller yatırım tavsiyesi değildir. Geçmiş performans gelecekteki sonuçları garanti etmez. Yatırım kararlarınızı kendi araştırmanıza ve finansal danışmanınıza dayandırın.
+<!-- ÖZELLİKLER -->
+<section>
+  <div class="container">
+    <div class="section-badge">Ne Sunuyoruz</div>
+    <h2>D-Club Kalabalık ve Gürültülü<br>Değil, Butiktir.</h2>
+    <p class="section-sub">Sabah 10:30'dan gece 23:00'a kadar piyasanın nabzını tutuyoruz. Kalite odaklı, seçkin bir topluluk.</p>
+    <div class="features-grid">
+      <div class="feat-card signal-feat"><div class="feat-icon">📡</div><h3>Swing Trade Sinyalleri</h3><p>18+ hisse için günlük teknik analiz taraması. EMA200, RSI, hacim konfirmasyonu — sadece güven skoru 60+ sinyaller iletilir. Giriş, hedef ve stop-loss dahil.</p><span class="feat-tag new">Yeni</span><span class="feat-tag members">Tam Üyelik</span></div>
+      <div class="feat-card signal-feat"><div class="feat-icon">⚡</div><h3>SPY Scalp Sinyalleri</h3><p>Piyasa saatlerinde her 5 dakikada bir SPY taranır. VWAP, RSI, ROC ve candlestick pattern analizi bir arada. Güven skoru 80+ olan fırsatlar anında iletilir.</p><span class="feat-tag new">Yeni</span><span class="feat-tag members">Tam Üyelik</span></div>
+      <div class="feat-card featured"><div class="feat-icon">📚</div><h3>DERS Komutu — AI Eğitim</h3><p>Merak ettiğin yatırım kavramını yaz, AI sana sade Türkçe ile açıklasın. EMA, RSI, P/E, stop-loss, candlestick ve daha fazlası — sınır yok.</p><span class="feat-tag new">Yeni</span><span class="feat-tag members">Tam Üyelik</span></div>
+      <div class="feat-card featured"><div class="feat-icon">📊</div><h3>Gerçek İşlem Bildirimleri</h3><p>Hisse aldığımda veya sattığımda anında bildirim alırsın. Tam detay: ticker, adet, fiyat, gerekçe. Opsiyon işlemleri dahil.</p><span class="feat-tag members">Tam Üyelik</span></div>
+      <div class="feat-card"><div class="feat-icon">📈</div><h3>BAK Analizi</h3><p>İstediğin hisseyi sorgula. EMA50/100/200, RSI, MACD, Fibonacci seviyeleri ve analist konsensüsü anında.</p><span class="feat-tag members">Tam Üyelik</span></div>
+      <div class="feat-card"><div class="feat-icon">📰</div><h3>Günlük Haber Akışı</h3><p>10:30, 15:30 ve 20:00'da Türkçe piyasa haberleri. Jeopolitik gelişmeler, Fed kararları, bilanço sonuçları önceliklendirilir.</p><span class="feat-tag free">Ücretsiz</span></div>
+      <div class="feat-card"><div class="feat-icon">💼</div><h3>Model Portföy Raporu</h3><p>Günde 3 kez: açılış, piyasa saatleri ve kapanış. Toplam getiri, günlük değişim, hisse bazlı performans.</p><span class="feat-tag free">Ücretsiz</span></div>
+      <div class="feat-card"><div class="feat-icon">🎯</div><h3>Fırsat Hisseler</h3><p>Öne çıkan hisseler için detaylı raporlar. Neden izliyorum, teknik seviyeler, hedef fiyat nedir?</p><span class="feat-tag members">Tam Üyelik</span></div>
+      <div class="feat-card"><div class="feat-icon">📉</div><h3>Opsiyon Portföyü</h3><p>Opsiyon pozisyonları, kontrat detayları ve anlık PnL durumu. Gerçek opsiyon stratejisini takip et.</p><span class="feat-tag members">Tam Üyelik</span></div>
+      <div class="feat-card"><div class="feat-icon">💬</div><h3>Üye Sohbet Kanalı</h3><p>Diğer üyelerle piyasayı tartış, soru sor, fikir paylaş. Butik ve kaliteli bir topluluk deneyimi — spam yok, gürültü yok.</p><span class="feat-tag members">Tam Üyelik</span></div>
+      <div class="feat-card"><div class="feat-icon">🗳️</div><h3>Anket Sonuçları</h3><p>Piyasa anketlerine katıl, tüm sonuçları görme ayrıcalığına sahip ol. Topluluğun nabzını tut.</p><span class="feat-tag members">Tam Üyelik</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FİYATLANDIRMA -->
+<div class="pricing-section" style="background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)">
+  <div class="section-badge">Üyelik</div>
+  <p class="pricing-headline">Her Ay Bir Kahve Parasına Piyasanın İçinde Ol,<br>Sinyalleri Takip Et, Vizyonunu Genişlet</p>
+  <div class="pricing-grid">
+    <div class="price-card">
+      <div class="price-label">Ana Kanal</div>
+      <div class="price-num">$0<span>/ay</span></div>
+      <div class="price-period">Sonsuza kadar ücretsiz</div>
+      <div class="price-divider"></div>
+      <div class="price-items">
+        <div class="price-item"><span class="price-item-icon">✅</span>Günlük piyasa haberleri</div>
+        <div class="price-item"><span class="price-item-icon">✅</span>Model portföy raporları</div>
+        <div class="price-item"><span class="price-item-icon">✅</span>Pre-market bildirimi</div>
+        <div class="price-item"><span class="price-item-icon">✅</span>İşlem teaser'ları</div>
+        <div class="price-item"><span class="price-item-icon">✅</span>Sinyal teaser'ları</div>
+        <div class="price-item" style="opacity:.4"><span class="price-item-icon">🔒</span>Gerçek sinyal detayları</div>
+        <div class="price-item" style="opacity:.4"><span class="price-item-icon">🔒</span>BAK analizi & DERS komutu</div>
+        <div class="price-item" style="opacity:.4"><span class="price-item-icon">🔒</span>SPY Scalp sinyalleri</div>
+      </div>
+      <a href="https://dclub-tr.github.io/d-club/" class="price-btn outline">Ücretsiz Katıl</a>
+    </div>
+    <div class="price-card featured">
+      <div class="price-label hot">Tam Üyelik · En Popüler</div>
+      <div class="price-num" style="color:var(--accent)">$6.99<span>/ay</span></div>
+      <div class="price-period">veya $69.99/yıl — 2 ay bedava</div>
+      <div class="price-divider"></div>
+      <div class="price-items">
+        <div class="price-item"><span class="price-item-icon">✅</span>Ücretsiz her şey +</div>
+        <div class="price-item new-feat"><span class="price-item-icon">⭐</span>Swing Trade sinyalleri (18+ hisse)</div>
+        <div class="price-item new-feat"><span class="price-item-icon">⭐</span>SPY Scalp sinyalleri (5dk tarama)</div>
+        <div class="price-item new-feat"><span class="price-item-icon">⭐</span>DERS komutu — AI yatırım eğitimi</div>
+        <div class="price-item"><span class="price-item-icon">✅</span>Gerçek işlem bildirimleri</div>
+        <div class="price-item"><span class="price-item-icon">✅</span>BAK hisse analizi</div>
+        <div class="price-item"><span class="price-item-icon">✅</span>Fırsat hissesi raporları</div>
+        <div class="price-item"><span class="price-item-icon">✅</span>Opsiyon portföyü</div>
+        <div class="price-item"><span class="price-item-icon">✅</span>Üye sohbet kanalı</div>
+        <div class="price-item"><span class="price-item-icon">✅</span>Anket sonuçları</div>
+      </div>
+      <a href="https://whop.com/joined/d-club/" class="price-btn primary">Tam Üyelik Al</a>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<div class="cta-section">
+  <div class="container">
+    <div class="section-badge">Başla</div>
+    <h2>Bugün katıl,<br>yarın sabah raporunu al.</h2>
+    <p>İlk adım ücretsiz. Disclaimer'ı onayla, topluluğa katıl!</p>
+    <div class="cta-btns">
+      <a href="https://dclub-tr.github.io/d-club/" class="btn-primary">🚀 Ücretsiz Başla</a>
+      <a href="https://whop.com/joined/d-club/" class="btn-secondary">💎 Tam Üyelik Al</a>
+    </div>
+  </div>
 </div>
 
 <footer>
-  <p>D-Club · ABD Borsaları Odaklı Yatırım Topluluğu · © 2026</p>
+  <p>D-Club · ABD Borsaları Odaklı Yatırım Topluluğu</p>
+  <p style="margin-top:8px">Bu platform yatırım danışmanlığı hizmeti vermez. Tüm içerikler yalnızca eğitim ve bilgilendirme amaçlıdır.</p>
 </footer>
 
 </body>
