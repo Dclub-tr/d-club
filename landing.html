@@ -20,8 +20,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 24px;display:fl
 .nav-logo{display:flex;align-items:center;gap:10px}
 .nav-mark{width:32px;height:32px;background:var(--accent);border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;color:#fff}
 .nav-name{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:17px;letter-spacing:.02em}
-.nav-cta{background:var(--accent);color:#fff;border:none;border-radius:8px;padding:9px 20px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;cursor:pointer;text-decoration:none;transition:background .2s}
-.nav-cta:hover{background:var(--accent2)}
+.btn-free-nav{background:var(--bg);color:var(--text);border:1px solid var(--border2);border-radius:8px;padding:9px 20px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;cursor:pointer;text-decoration:none;transition:all .2s}
+.btn-free-nav:hover{border-color:var(--accent)}
 
 /* HERO */
 .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 24px 80px;position:relative;overflow:hidden}
@@ -38,6 +38,14 @@ h1 .accent{color:var(--accent)}
 .btn-primary:active{transform:scale(.98)}
 .btn-secondary{background:transparent;color:var(--text);border:1px solid var(--border2);border-radius:10px;padding:15px 32px;font-family:'DM Sans',sans-serif;font-size:16px;font-weight:500;cursor:pointer;text-decoration:none;transition:border-color .2s,background .2s}
 .btn-secondary:hover{border-color:var(--accent);background:rgba(45,110,245,.06)}
+.btn-free{background:var(--bg);color:var(--text);border:1px solid var(--border2);border-radius:10px;padding:15px 32px;font-family:'DM Sans',sans-serif;font-size:16px;font-weight:500;cursor:pointer;text-decoration:none;transition:all .2s}
+.btn-free:hover{border-color:var(--accent);background:rgba(45,110,245,.06)}
+.btn-members{background:var(--accent);color:#fff;border:none;border-radius:10px;padding:15px 32px;font-family:'DM Sans',sans-serif;font-size:16px;font-weight:500;cursor:pointer;text-decoration:none;transition:background .2s,transform .1s}
+.btn-members:hover{background:var(--accent2)}
+.btn-members:active{transform:scale(.98)}
+.upgrade-nudge{font-size:13px;color:var(--muted);margin-top:10px}
+.upgrade-nudge a{color:var(--accent);text-decoration:none;font-weight:500}
+.upgrade-nudge a:hover{text-decoration:underline}
 .hero-stat-row{display:flex;gap:40px;justify-content:center;flex-wrap:wrap;margin-top:60px;padding-top:60px;border-top:1px solid var(--border)}
 .hero-stat{text-align:center}
 .hero-stat-num{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:32px;line-height:1}
@@ -122,8 +130,8 @@ h2{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:clamp(26
 .price-btn{display:block;width:100%;padding:14px;border-radius:10px;text-align:center;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;text-decoration:none;transition:all .2s;cursor:pointer;border:none}
 .price-btn.primary{background:var(--accent);color:#fff}
 .price-btn.primary:hover{background:var(--accent2)}
-.price-btn.outline{background:transparent;color:var(--text);border:1px solid var(--border2)}
-.price-btn.outline:hover{border-color:var(--accent);background:rgba(45,110,245,.06)}
+.price-btn.free-btn{background:var(--bg);color:var(--text);border:1px solid var(--border2)}
+.price-btn.free-btn:hover{border-color:var(--accent);background:rgba(45,110,245,.06)}
 .cta-section{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);text-align:center;padding:96px 24px}
 .cta-section h2{max-width:600px;margin:0 auto 16px}
 .cta-section p{color:var(--muted);margin-bottom:40px;font-size:17px}
@@ -146,7 +154,7 @@ footer p{font-size:12px;color:var(--muted)}
     <div class="nav-mark">D</div>
     <span class="nav-name">D-Club</span>
   </div>
-  <a href="https://dclub-tr.github.io/d-club/" class="nav-cta">Ücretsiz Katıl</a>
+  <a href="https://dclub-tr.github.io/d-club/" class="btn-free-nav">Ücretsiz Kanala Katıl</a>
 </nav>
 
 <!-- HERO -->
@@ -157,17 +165,18 @@ footer p{font-size:12px;color:var(--muted)}
     Sinyal sistemi aktif · Günlük rapor yayında
   </div>
   <h1>
-    Canlı yayına yetişmek<br>
-    zorunda <span class="accent">değilsin.</span>
+    Yetişmek zorunda olmadan<br>
+    <span class="accent">ABD borsaları</span>
   </h1>
   <p class="hero-sub">
-    Discord'u takip etmek zorunda değilsin. D-Club senin temponda çalışır.<br>
-    ABD borsasını öğren — hazır olduğunda, istediğin zaman.
+    Canlı yayına, sosyal medya mesajlarına yetişmek zorunda değilsin.<br>
+    D-Club senin temponda çalışır. ABD borsasını öğren — hazır olduğunda, istediğin zaman.
   </p>
   <div class="hero-btns">
-    <a href="https://dclub-tr.github.io/d-club/" class="btn-primary">🚀 Ücretsiz Başla</a>
-    <a href="https://whop.com/joined/d-club/" class="btn-secondary">💎 Tam Üyelik — $6.99/ay</a>
+    <a href="https://dclub-tr.github.io/d-club/" class="btn-free">Ücretsiz Kanala Katıl</a>
+    <a href="https://whop.com/joined/d-club/" class="btn-members">💎 Tam Üyelik — $6.99/ay</a>
   </div>
+  <p class="upgrade-nudge">Tüm özelliklerden faydalanmak için → <a href="https://whop.com/joined/d-club/">Tam Üyelik Al</a></p>
   <div class="hero-stat-row">
     <div class="hero-stat">
       <div class="hero-stat-num" style="color:var(--green)">+%349*</div>
@@ -359,7 +368,7 @@ footer p{font-size:12px;color:var(--muted)}
         <div class="price-item" style="opacity:.4"><span class="price-item-icon">🔒</span>BAK analizi & DERS komutu</div>
         <div class="price-item" style="opacity:.4"><span class="price-item-icon">🔒</span>SPY Scalp sinyalleri</div>
       </div>
-      <a href="https://dclub-tr.github.io/d-club/" class="price-btn outline">Ücretsiz Katıl</a>
+      <a href="https://dclub-tr.github.io/d-club/" class="price-btn free-btn">Ücretsiz Kanala Katıl</a>
     </div>
     <div class="price-card featured">
       <div class="price-label hot">Tam Üyelik · En Popüler</div>
@@ -386,12 +395,11 @@ footer p{font-size:12px;color:var(--muted)}
 <!-- CTA -->
 <div class="cta-section">
   <div class="container">
-    <div class="section-badge">Başla</div>
-    <h2>Bugün katıl,<br>yarın sabah raporunu al.</h2>
-    <p>İlk adım ücretsiz. Disclaimer'ı onayla, topluluğa katıl!</p>
+    <p style="font-size:clamp(22px,3vw,36px);font-weight:800;letter-spacing:-.02em;margin-bottom:8px;line-height:1.2">En iyi yatırım,<br><span style="color:var(--accent)">kendinize yatırımdır.</span></p>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:36px">— Warren Buffett</p>
     <div class="cta-btns">
-      <a href="https://dclub-tr.github.io/d-club/" class="btn-primary">🚀 Ücretsiz Başla</a>
-      <a href="https://whop.com/joined/d-club/" class="btn-secondary">💎 Tam Üyelik Al</a>
+      <a href="https://dclub-tr.github.io/d-club/" class="btn-free">Ücretsiz Kanala Katıl</a>
+      <a href="https://whop.com/joined/d-club/" class="btn-members">💎 Tam Üyelik Al</a>
     </div>
   </div>
 </div>
