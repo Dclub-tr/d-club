@@ -171,6 +171,10 @@ footer p{font-size:12px;color:var(--muted)}
   .hero-stat-row{gap:24px}
   .tools-grid{grid-template-columns:1fr}
 }
+.tv-ticker{background:var(--bg);border-bottom:1px solid var(--border);overflow:hidden}
+.chart-section{padding:96px 24px;background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.chart-wrap{height:520px;width:100%;margin-top:40px;border-radius:12px;overflow:hidden}
+@media(max-width:600px){.chart-wrap{height:420px}}
 </style>
 </head>
 <body>
@@ -182,6 +186,31 @@ footer p{font-size:12px;color:var(--muted)}
   </div>
   <a href="https://dclub-tr.github.io/d-club/" class="btn-free-nav">Ücretsiz Kanala Katıl</a>
 </nav>
+
+<div class="tv-ticker">
+  <div class="tradingview-widget-container">
+    <div class="tradingview-widget-container__widget"></div>
+    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+    {
+      "symbols": [
+        {"proName":"FOREXCOM:SPXUSD","title":"S&P 500"},
+        {"proName":"NASDAQ:QQQ","title":"Nasdaq"},
+        {"proName":"NASDAQ:AAPL","title":"AAPL"},
+        {"proName":"NASDAQ:NVDA","title":"NVDA"},
+        {"proName":"NASDAQ:TSLA","title":"TSLA"},
+        {"proName":"NASDAQ:MSFT","title":"MSFT"},
+        {"proName":"NASDAQ:AMZN","title":"AMZN"},
+        {"proName":"BITSTAMP:BTCUSD","title":"BTC/USD"}
+      ],
+      "showSymbolLogo": true,
+      "colorTheme": "dark",
+      "isTransparent": true,
+      "displayMode": "adaptive",
+      "locale": "tr"
+    }
+    </script>
+  </div>
+</div>
 
 <!-- HERO -->
 <section class="hero">
@@ -259,6 +288,34 @@ footer p{font-size:12px;color:var(--muted)}
   }).catch(function(){track.innerHTML='';});
 })();
 </script>
+
+<section class="chart-section">
+  <div class="container">
+    <div class="section-badge">Piyasa</div>
+    <h2>Piyasayı canlı izle</h2>
+    <p class="section-sub">S&amp;P 500 (SPY) — takip ettiğimiz ana endeks. Grafik üzerinde sembol değiştirebilirsin.</p>
+    <div class="chart-wrap">
+      <div class="tradingview-widget-container" style="height:100%;width:100%">
+        <div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+        {
+          "autosize": true,
+          "symbol": "AMEX:SPY",
+          "interval": "D",
+          "timezone": "Europe/Istanbul",
+          "theme": "dark",
+          "style": "1",
+          "locale": "tr",
+          "allow_symbol_change": true,
+          "calendar": false,
+          "hide_side_toolbar": false,
+          "support_host": "https://www.tradingview.com"
+        }
+        </script>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- NASIL ÇALIŞIR -->
 <div class="journey-section">
