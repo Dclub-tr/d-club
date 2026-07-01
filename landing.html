@@ -4,355 +4,594 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>D-Club — ABD Borsaları Yatırım Topluluğu</title>
-<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,400&display=swap" rel="stylesheet" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
 <style>
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --bg:#07090f;--bg2:#0d1119;--bg3:#111827;
-  --border:#1c2840;--border2:#263552;
-  --text:#dde6f5;--muted:#4d6a99;
-  --accent:#2d6ef5;--accent2:#1a4db8;
-  --green:#1db87a;--amber:#e8a020;--red:#e84040;
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:       #f5f5f7;
+  --surface:  #ffffff;
+  --surface2: #f5f5f7;
+  --border:   rgba(0,0,0,0.12);
+  --border-s: rgba(0,0,0,0.08);
+  --text:     #1d1d1f;
+  --sub:      #6e6e73;
+  --muted:    #86868b;
+  --blue:     #0071e3;
+  --blue-d:   rgba(0,113,227,0.1);
+  --green:    #1a7a38;
+  --green-d:  rgba(26,122,56,0.1);
+  --red:      #c0001a;
+  --amber:    #b35a00;
+  --amber-d:  rgba(179,90,0,0.1);
 }
-html{scroll-behavior:smooth}
-body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;font-size:15px;line-height:1.6;overflow-x:hidden}
 
-/* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;background:rgba(7,9,15,0.88);backdrop-filter:blur(12px);border-bottom:1px solid rgba(28,40,64,0.6)}
-.nav-logo{display:flex;align-items:center;gap:10px}
-.nav-mark{width:32px;height:32px;background:var(--accent);border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;color:#fff}
-.nav-name{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:17px;letter-spacing:.02em}
-.btn-free-nav{background:var(--bg);color:var(--text);border:1px solid var(--border2);border-radius:8px;padding:9px 20px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;cursor:pointer;text-decoration:none;transition:all .2s}
-.btn-free-nav:hover{border-color:var(--accent)}
-
-/* HERO */
-.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 24px 80px;position:relative;overflow:hidden}
-.hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(45,110,245,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(45,110,245,.04) 1px,transparent 1px);background-size:60px 60px;mask-image:radial-gradient(ellipse 80% 60% at 50% 50%,black,transparent);pointer-events:none}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;font-size:12px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);border:1px solid rgba(45,110,245,.3);background:rgba(45,110,245,.08);padding:6px 16px;border-radius:20px;margin-bottom:28px}
-.hero-badge-dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
-@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
-h1{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(28px,4vw,56px);line-height:1.15;letter-spacing:-.02em;margin-bottom:24px;max-width:860px}
-h1 .accent{color:var(--accent)}
-h1 .break{display:block;font-size:clamp(20px,2.8vw,38px);font-weight:600;color:var(--muted);margin-top:8px;letter-spacing:-.01em}
-.hero-sub{font-size:clamp(14px,1.8vw,17px);color:var(--muted);max-width:580px;margin:0 auto 44px;line-height:1.8}
-.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-.btn-primary{background:var(--accent);color:#fff;border:none;border-radius:10px;padding:15px 32px;font-family:'DM Sans',sans-serif;font-size:16px;font-weight:500;cursor:pointer;text-decoration:none;transition:background .2s,transform .1s}
-.btn-primary:hover{background:var(--accent2)}
-.btn-primary:active{transform:scale(.98)}
-.btn-free{background:var(--bg);color:var(--text);border:1px solid var(--border2);border-radius:10px;padding:15px 32px;font-family:'DM Sans',sans-serif;font-size:16px;font-weight:500;cursor:pointer;text-decoration:none;transition:all .2s}
-.btn-free:hover{border-color:var(--accent);background:rgba(45,110,245,.06)}
-.btn-members{background:var(--accent);color:#fff;border:none;border-radius:10px;padding:15px 32px;font-family:'DM Sans',sans-serif;font-size:16px;font-weight:500;cursor:pointer;text-decoration:none;transition:background .2s,transform .1s}
-.btn-members:hover{background:var(--accent2)}
-.btn-members:active{transform:scale(.98)}
-.upgrade-nudge{font-size:13px;color:var(--muted);margin-top:10px}
-.upgrade-nudge a{color:var(--accent);text-decoration:none;font-weight:500}
-.upgrade-nudge a:hover{text-decoration:underline}
-.hero-stat-row{display:flex;gap:40px;justify-content:center;flex-wrap:wrap;margin-top:60px;padding-top:60px;border-top:1px solid var(--border)}
-.hero-stat{text-align:center}
-.hero-stat-num{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:32px;line-height:1}
-.hero-stat-label{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-top:6px}
-.hero-footnote{margin-top:20px;font-size:11px;color:var(--muted);text-align:center;max-width:660px;line-height:1.7}
-
-/* TICKER BAND */
-.ticker-wrap{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);padding:14px 0;overflow:hidden;position:relative}
-.ticker-wrap::before,.ticker-wrap::after{content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2}
-.ticker-wrap::before{left:0;background:linear-gradient(90deg,var(--bg2),transparent)}
-.ticker-wrap::after{right:0;background:linear-gradient(270deg,var(--bg2),transparent)}
-.ticker{display:flex;gap:48px;animation:scroll 35s linear infinite;width:max-content}
-.ticker:hover{animation-play-state:paused}
-@keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
-.tick-item{display:flex;align-items:center;gap:10px;font-size:13px;white-space:nowrap}
-.tick-name{font-weight:600;color:var(--text)}
-.tick-price{color:var(--muted)}
-.tick-up{color:var(--green)}
-.tick-dn{color:var(--red)}
-.ticker-ts{text-align:center;font-size:11px;color:var(--muted);padding:6px 0 2px;opacity:.6}
-
-/* SECTIONS */
-section{padding:96px 24px}
-.container{max-width:1100px;margin:0 auto}
-.section-badge{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:16px}
-h2{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:clamp(24px,3.5vw,40px);line-height:1.2;letter-spacing:-.02em;margin-bottom:16px}
-.section-sub{font-size:16px;color:var(--muted);max-width:560px;line-height:1.7}
-
-/* JOURNEY */
-.journey-section{padding:96px 24px;background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.journey-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;margin-top:56px;position:relative}
-.journey-grid::before{content:'';position:absolute;top:36px;left:calc(16.66% + 20px);right:calc(16.66% + 20px);height:1px;background:var(--border2);z-index:0}
-@media(max-width:860px){
-  .journey-grid{grid-template-columns:1fr;gap:40px}
-  .journey-grid::before{display:none}
+html { scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 17px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
-.journey-step{position:relative;padding:0 20px;text-align:center}
-.journey-num{width:72px;height:72px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:24px;margin:0 auto 24px;position:relative;z-index:1}
-.journey-num.step1{background:rgba(29,184,122,.12);border:2px solid rgba(29,184,122,.3);color:var(--green)}
-.journey-num.step2{background:rgba(45,110,245,.12);border:2px solid rgba(45,110,245,.4);color:var(--accent)}
-.journey-num.step3{background:rgba(232,160,32,.1);border:2px solid rgba(232,160,32,.3);color:var(--amber)}
-.journey-title{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:18px;margin-bottom:8px}
-.journey-label{display:inline-block;font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:3px 10px;border-radius:12px;margin-bottom:16px}
-.journey-label.free{background:rgba(29,184,122,.1);color:var(--green);border:1px solid rgba(29,184,122,.2)}
-.journey-label.paid{background:rgba(45,110,245,.1);color:var(--accent);border:1px solid rgba(45,110,245,.2)}
-.journey-label.habit{background:rgba(232,160,32,.08);color:var(--amber);border:1px solid rgba(232,160,32,.2)}
-.journey-items{display:flex;flex-direction:column;gap:8px;text-align:left;background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:20px}
-.journey-item{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--muted);line-height:1.5}
-.journey-item-icon{font-size:14px;flex-shrink:0;margin-top:1px}
-.journey-item strong{color:var(--text);font-weight:500}
 
-/* TOOLS */
-.tools-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;margin-top:56px}
-.tool-card{background:var(--bg2);border:1px solid var(--border);border-radius:16px;padding:24px;transition:border-color .2s}
-.tool-card:hover{border-color:var(--border2)}
-.tool-card.members-only{border-color:rgba(45,110,245,.25);background:linear-gradient(135deg,rgba(45,110,245,.04),var(--bg2))}
-.tool-card.signal{border-color:rgba(29,184,122,.25);background:linear-gradient(135deg,rgba(29,184,122,.04),var(--bg2))}
-.tool-card.free-card{border-color:var(--border)}
-.tool-icon{font-size:28px;margin-bottom:14px}
-.tool-card h3{font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;font-size:17px;margin-bottom:8px}
-.tool-card p{font-size:13px;color:var(--muted);line-height:1.7;margin-bottom:14px}
-.tool-tag{display:inline-block;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:3px 8px;border-radius:5px;margin-right:4px}
-.tool-tag.members{background:rgba(45,110,245,.12);color:var(--accent);border:1px solid rgba(45,110,245,.2)}
-.tool-tag.free{background:rgba(29,184,122,.1);color:var(--green);border:1px solid rgba(29,184,122,.2)}
-.tool-tag.new{background:rgba(232,160,32,.1);color:var(--amber);border:1px solid rgba(232,160,32,.2)}
-
-/* COMPARE */
-.compare-section{padding:96px 24px;background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:800px;margin:48px auto 0}
-@media(max-width:600px){.compare-grid{grid-template-columns:1fr}}
-.compare-card{background:var(--bg);border:1px solid var(--border);border-radius:20px;padding:28px}
-.compare-card.featured{border-color:rgba(45,110,245,.45);background:linear-gradient(160deg,rgba(45,110,245,.07),var(--bg))}
-.compare-head{margin-bottom:20px}
-.compare-label{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:8px}
-.compare-label.hot{color:var(--accent)}
-.compare-price{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:38px;line-height:1}
-.compare-price span{font-size:16px;font-weight:400;color:var(--muted)}
-.compare-period{font-size:12px;color:var(--muted);margin-top:4px}
-.compare-divider{height:1px;background:var(--border);margin:20px 0}
-.compare-list{display:flex;flex-direction:column;gap:10px;margin-bottom:24px}
-.compare-item{display:flex;align-items:flex-start;gap:10px;font-size:13px}
-.compare-item.dimmed{opacity:.4}
-.compare-item.highlight{color:var(--text)}
-.compare-item-icon{flex-shrink:0;margin-top:1px}
-
-/* PRICING */
-.pricing-section{padding:96px 24px;text-align:center}
-.pricing-headline{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:clamp(20px,3vw,32px);line-height:1.3;color:var(--text);max-width:620px;margin:0 auto 56px}
-.pricing-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:720px;margin:0 auto}
-@media(max-width:600px){.pricing-grid{grid-template-columns:1fr}}
-.price-card{background:var(--bg2);border:1px solid var(--border);border-radius:20px;padding:32px;text-align:left}
-.price-card.featured{border-color:rgba(45,110,245,.5);background:linear-gradient(160deg,rgba(45,110,245,.08),var(--bg2))}
-.price-label{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:12px}
-.price-label.hot{color:var(--accent)}
-.price-num{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:42px;line-height:1;margin-bottom:6px}
-.price-num span{font-size:18px;font-weight:400;color:var(--muted)}
-.price-period{font-size:13px;color:var(--muted);margin-bottom:24px}
-.price-divider{height:1px;background:var(--border);margin-bottom:20px}
-.price-items{display:flex;flex-direction:column;gap:10px;margin-bottom:28px}
-.price-item{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--muted)}
-.price-item-icon{font-size:14px;flex-shrink:0;margin-top:1px}
-.price-item.highlight{color:var(--text)}
-.price-item.highlight .price-item-icon{color:var(--amber)}
-.price-btn{display:block;width:100%;padding:14px;border-radius:10px;text-align:center;font-family:'DM Sans',sans-serif;font-size:15px;font-weight:500;text-decoration:none;transition:all .2s;cursor:pointer;border:none}
-.price-btn.primary{background:var(--accent);color:#fff}
-.price-btn.primary:hover{background:var(--accent2)}
-.price-btn.free-btn{background:var(--bg);color:var(--text);border:1px solid var(--border2)}
-.price-btn.free-btn:hover{border-color:var(--accent);background:rgba(45,110,245,.06)}
-
-/* CTA */
-.cta-section{background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border);text-align:center;padding:96px 24px}
-.cta-section h2{max-width:600px;margin:0 auto 16px}
-.cta-section p{color:var(--muted);margin-bottom:40px;font-size:16px}
-.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-
-footer{padding:40px 24px;text-align:center;border-top:1px solid var(--border)}
-footer p{font-size:12px;color:var(--muted)}
-
-@media(max-width:600px){
-  .hero-btns{flex-direction:column;align-items:center}
-  .btn-primary,.btn-free,.btn-members,.btn-secondary{width:100%;max-width:320px;text-align:center}
-  .hero-stat-row{gap:24px}
-  .tools-grid{grid-template-columns:1fr}
+/* ── Navigation ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  height: 52px;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 24px;
+  background: rgba(255,255,255,0.85);
+  backdrop-filter: saturate(180%) blur(20px);
+  -webkit-backdrop-filter: saturate(180%) blur(20px);
+  border-bottom: 1px solid rgba(0,0,0,0.1);
 }
-.tv-ticker{background:var(--bg);border-bottom:1px solid var(--border);overflow:hidden}
-.chart-section{padding:96px 24px;background:var(--bg2);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
-.chart-wrap{height:520px;width:100%;margin-top:40px;border-radius:12px;overflow:hidden}
-@media(max-width:600px){.chart-wrap{height:420px}}
+.nav-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; }
+.nav-mark {
+  width: 28px; height: 28px;
+  background: var(--blue); border-radius: 7px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 700; color: #fff;
+}
+.nav-name { font-size: 17px; font-weight: 600; color: var(--text); letter-spacing: -0.01em; }
+.nav-cta {
+  padding: 7px 16px;
+  background: var(--blue); color: #fff; border-radius: 980px;
+  font-size: 13px; font-weight: 500; text-decoration: none;
+  transition: opacity 0.2s;
+}
+.nav-cta:hover { opacity: 0.82; }
+
+/* ── Feature Marquee Band ── */
+.feat-band {
+  margin-top: 52px;
+  background: var(--blue);
+  padding: 10px 0;
+  overflow: hidden;
+  position: relative;
+}
+.feat-band::before, .feat-band::after {
+  content: ''; position: absolute; top: 0; bottom: 0; width: 80px; z-index: 2;
+}
+.feat-band::before { left: 0; background: linear-gradient(90deg, var(--blue), transparent); }
+.feat-band::after  { right: 0; background: linear-gradient(270deg, var(--blue), transparent); }
+.feat-band-inner {
+  display: flex; align-items: center; gap: 0;
+  animation: marquee 40s linear infinite; width: max-content;
+}
+.feat-band-inner:hover { animation-play-state: paused; }
+@keyframes marquee { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+.fb-item {
+  display: inline-flex; align-items: center;
+  font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.92);
+  white-space: nowrap; padding: 0 20px;
+}
+.fb-sep {
+  color: rgba(255,255,255,0.35); font-size: 11px; flex-shrink: 0;
+}
+.fb-logo {
+  font-weight: 700; color: #fff; letter-spacing: 0.04em; padding: 0 24px;
+}
+
+/* ── Hero ── */
+.hero {
+  min-height: 100vh;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; padding: 60px 24px 100px;
+}
+.hero-live {
+  display: inline-flex; align-items: center; gap: 7px;
+  font-size: 14px; font-weight: 500; color: var(--blue);
+  margin-bottom: 32px;
+}
+.live-dot {
+  width: 5px; height: 5px; border-radius: 50%; background: var(--green);
+  animation: blink 2s ease-in-out infinite;
+}
+@keyframes blink { 0%,100%{opacity:1} 50%{opacity:.25} }
+
+h1.display {
+  font-size: clamp(44px, 6.5vw, 80px);
+  font-weight: 700; letter-spacing: -0.035em; line-height: 1.04;
+  margin-bottom: 28px; max-width: 840px;
+}
+h1.display em { font-style: normal; color: var(--blue); }
+
+.hero-sub {
+  font-size: clamp(16px, 2vw, 19px); color: var(--sub);
+  max-width: 560px; margin: 0 auto 52px; line-height: 1.68;
+}
+
+.btn-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+.btn-solid {
+  display: inline-flex; align-items: center;
+  padding: 14px 30px; border-radius: 980px;
+  background: var(--blue); color: #fff;
+  font-size: 17px; font-weight: 500; text-decoration: none;
+  transition: opacity 0.2s;
+}
+.btn-solid:hover { opacity: 0.82; }
+
+.btn-outline {
+  display: inline-flex; align-items: center;
+  padding: 14px 30px; border-radius: 980px;
+  background: transparent; color: var(--text); border: 1px solid var(--border);
+  font-size: 17px; font-weight: 400; text-decoration: none;
+  transition: border-color 0.2s, background 0.2s;
+}
+.btn-outline:hover { border-color: rgba(0,0,0,.28); background: rgba(0,0,0,.04); }
+
+/* Stats */
+.stats {
+  display: flex; gap: 0; justify-content: center; flex-wrap: wrap;
+  margin-top: 72px; padding-top: 40px;
+  border-top: 1px solid var(--border-s);
+  max-width: 720px; margin-left: auto; margin-right: auto;
+}
+.stat { flex: 1; min-width: 140px; text-align: center; padding: 0 28px; }
+.stat + .stat { border-left: 1px solid var(--border-s); }
+.stat-n { font-size: 40px; font-weight: 700; letter-spacing: -0.025em; line-height: 1; }
+.stat-l { font-size: 12px; color: var(--muted); margin-top: 8px; line-height: 1.4; }
+.hero-note {
+  margin-top: 24px; font-size: 11px; color: var(--muted);
+  max-width: 600px; text-align: center; line-height: 1.6;
+}
+
+/* ── Custom Price Ticker ── */
+.ticker-band {
+  background: var(--surface);
+  border-top: 1px solid var(--border-s);
+  border-bottom: 1px solid var(--border-s);
+  padding: 11px 0; overflow: hidden; position: relative;
+}
+.ticker-band::before, .ticker-band::after {
+  content: ''; position: absolute; top: 0; bottom: 0; width: 100px; z-index: 2;
+}
+.ticker-band::before { left: 0; background: linear-gradient(90deg, #ffffff, transparent); }
+.ticker-band::after  { right: 0; background: linear-gradient(270deg, #ffffff, transparent); }
+.ticker-inner {
+  display: flex; gap: 40px;
+  animation: marquee 35s linear infinite; width: max-content;
+}
+.ticker-inner:hover { animation-play-state: paused; }
+.tick-item { display: flex; align-items: center; gap: 8px; font-size: 13px; white-space: nowrap; }
+.tick-sym { font-weight: 600; }
+.tick-px  { color: var(--sub); }
+.tick-up  { color: var(--green); }
+.tick-dn  { color: var(--red); }
+
+/* ── Section Layout ── */
+.container      { max-width: 980px; margin: 0 auto; padding: 0 24px; }
+.container-wide { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+section { padding: 120px 0; }
+.sec-label {
+  font-size: 12px; font-weight: 500;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--muted); margin-bottom: 20px;
+}
+h2.headline {
+  font-size: clamp(30px, 4vw, 52px);
+  font-weight: 700; letter-spacing: -0.025em; line-height: 1.1;
+}
+
+/* ── Signals ── */
+.signals-section { padding: 120px 0; }
+.signals-intro { max-width: 640px; margin-bottom: 64px; }
+.signals-intro p { margin-top: 20px; font-size: 17px; color: var(--sub); line-height: 1.65; }
+
+.sig-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 16px; }
+
+.sig-card {
+  background: var(--surface); border: 1px solid var(--border-s);
+  border-radius: 20px; padding: 28px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.sig-card:hover { border-color: rgba(0,0,0,0.15); box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+.sig-card.swing { border-color: rgba(26,122,56,0.25); }
+.sig-card.day   { border-color: rgba(0,113,227,0.22); }
+.sig-card.scalp { border-color: rgba(179,90,0,0.22); }
+
+.sig-type { font-size: 11px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 16px; }
+.sig-card.swing .sig-type { color: var(--green); }
+.sig-card.day   .sig-type { color: var(--blue); }
+.sig-card.scalp .sig-type { color: var(--amber); }
+
+.sig-top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 16px; }
+.sig-ticker { font-size: 36px; font-weight: 700; letter-spacing: -0.03em; }
+.sig-score { font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 7px; margin-top: 6px; }
+.sig-card.swing .sig-score { background: var(--green-d); color: var(--green); }
+.sig-card.day   .sig-score { background: var(--blue-d); color: var(--blue); }
+.sig-card.scalp .sig-score { background: var(--amber-d); color: var(--amber); }
+
+.sig-dir { display: inline-flex; align-items: center; font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: 8px; margin-bottom: 20px; }
+.sig-card.swing .sig-dir { background: var(--green-d); color: var(--green); }
+.sig-card.day   .sig-dir { background: var(--blue-d); color: var(--blue); }
+.sig-card.scalp .sig-dir { background: var(--amber-d); color: var(--amber); }
+
+.sig-rows { display: flex; flex-direction: column; gap: 10px; }
+.sig-row { display: flex; justify-content: space-between; font-size: 13px; }
+.sig-row-l { color: var(--muted); }
+.sig-row-v { font-weight: 500; }
+.sig-row-v.pos { color: var(--green); }
+.sig-row-v.neg { color: var(--red); }
+.sig-row-v .dim { color: var(--muted); font-weight: 400; }
+
+.sig-hr { height: 1px; background: var(--border-s); margin: 16px 0; }
+
+.sig-reasons { display: flex; flex-direction: column; gap: 7px; }
+.sig-reason { display: flex; align-items: center; gap: 7px; font-size: 12px; line-height: 1.4; }
+.sig-reason::before { content: ''; width: 4px; height: 4px; border-radius: 50%; flex-shrink: 0; background: currentColor; }
+.sig-card.swing .sig-reason { color: var(--green); }
+.sig-card.day   .sig-reason { color: var(--blue); }
+.sig-card.scalp .sig-reason { color: var(--amber); }
+
+.sig-note { text-align: center; font-size: 12px; color: var(--muted); margin-top: 32px; }
+
+/* ── Chart ── */
+.chart-section {
+  padding: 100px 0;
+  background: var(--surface);
+  border-top: 1px solid var(--border-s);
+  border-bottom: 1px solid var(--border-s);
+}
+.chart-lead { margin-top: 16px; font-size: 17px; color: var(--sub); line-height: 1.6; }
+.chart-wrap {
+  height: 480px; margin-top: 48px;
+  border-radius: 16px; overflow: hidden;
+  border: 1px solid var(--border-s);
+}
+
+/* ── Features ── */
+.features-section {
+  padding: 120px 0;
+  background: var(--bg);
+  border-top: 1px solid var(--border-s);
+}
+.features-head { text-align: center; max-width: 580px; margin: 0 auto 72px; }
+.features-head p { margin-top: 20px; font-size: 17px; color: var(--sub); }
+
+.feat-grid {
+  display: grid; grid-template-columns: repeat(3,1fr);
+  gap: 1px; border: 1px solid var(--border-s);
+  border-radius: 20px; overflow: hidden;
+  background: var(--border-s);
+}
+.feat-item {
+  background: var(--surface); padding: 28px;
+  transition: background 0.18s;
+}
+.feat-item:hover { background: #fafafa; }
+.feat-t { font-size: 15px; font-weight: 600; margin-bottom: 8px; color: var(--text); }
+.feat-d { font-size: 13px; color: var(--muted); line-height: 1.6; }
+.feat-tags { margin-top: 14px; display: flex; gap: 6px; flex-wrap: wrap; }
+.tag { font-size: 10px; font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase; padding: 3px 8px; border-radius: 5px; }
+.tag.m { background: var(--blue-d); color: var(--blue); }
+.tag.f { background: var(--green-d); color: var(--green); }
+.tag.n { background: var(--amber-d); color: var(--amber); }
+
+/* ── Pricing ── */
+.pricing-section { padding: 120px 0; background: var(--surface); border-top: 1px solid var(--border-s); }
+.pricing-head { text-align: center; max-width: 520px; margin: 0 auto 72px; }
+.pricing-head p { margin-top: 20px; font-size: 17px; color: var(--sub); }
+
+.price-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 760px; margin: 0 auto; }
+
+.price-card {
+  background: var(--bg); border: 1px solid var(--border-s);
+  border-radius: 24px; padding: 36px; text-align: left;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+}
+.price-card.featured {
+  border-color: var(--blue);
+  box-shadow: 0 4px 24px rgba(0,113,227,0.14);
+  background: var(--surface);
+}
+
+.price-tier { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 16px; }
+.price-tier.hot { color: var(--blue); }
+
+.price-amt { font-size: 52px; font-weight: 700; letter-spacing: -0.03em; line-height: 1; }
+.price-amt sub { font-size: 20px; font-weight: 400; color: var(--muted); vertical-align: baseline; }
+.price-per { font-size: 13px; color: var(--muted); margin-top: 8px; margin-bottom: 32px; }
+
+.price-hr { height: 1px; background: var(--border-s); margin-bottom: 24px; }
+
+.price-list { display: flex; flex-direction: column; gap: 11px; margin-bottom: 32px; }
+.price-item { display: flex; align-items: flex-start; gap: 10px; font-size: 13.5px; color: var(--sub); }
+.price-item.hi { color: var(--text); font-weight: 500; }
+.price-item.lo { opacity: 0.38; }
+
+.chk {
+  width: 16px; height: 16px; border-radius: 50%;
+  background: var(--green-d); color: var(--green);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 9px; flex-shrink: 0; margin-top: 2px; font-weight: 700;
+}
+.lck {
+  width: 16px; height: 16px; border-radius: 50%;
+  background: rgba(0,0,0,0.04); color: var(--muted);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 9px; flex-shrink: 0; margin-top: 2px;
+}
+
+.price-btn {
+  display: block; width: 100%; padding: 14px;
+  border-radius: 14px; text-align: center;
+  font-size: 15px; font-weight: 500; text-decoration: none;
+  transition: opacity 0.2s, background 0.2s, border-color 0.2s;
+}
+.price-btn.p { background: var(--blue); color: #fff; }
+.price-btn.p:hover { opacity: 0.82; }
+.price-btn.g { background: transparent; color: var(--text); border: 1px solid var(--border); }
+.price-btn.g:hover { border-color: rgba(0,0,0,.28); }
+
+/* ── CTA ── */
+.cta-section { padding: 120px 0; text-align: center; background: var(--bg); border-top: 1px solid var(--border-s); }
+.cta-quote { font-size: clamp(26px, 3.5vw, 44px); font-weight: 600; letter-spacing: -0.02em; line-height: 1.2; max-width: 660px; margin: 0 auto 12px; }
+.cta-cite { font-size: 14px; color: var(--muted); }
+.cta-btns { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; margin-top: 48px; }
+
+/* ── Footer ── */
+footer { padding: 40px 24px; border-top: 1px solid var(--border-s); text-align: center; background: var(--surface); }
+footer p { font-size: 12px; color: var(--muted); line-height: 1.7; }
+
+/* ── Responsive ── */
+@media (max-width: 900px) {
+  .sig-grid { grid-template-columns: 1fr; }
+  .feat-grid { grid-template-columns: 1fr 1fr; }
+}
+@media (max-width: 600px) {
+  .btn-row { flex-direction: column; align-items: center; }
+  .btn-solid, .btn-outline { width: 100%; max-width: 320px; justify-content: center; }
+  .stats { flex-direction: column; gap: 0; }
+  .stat + .stat { border-left: none; border-top: 1px solid var(--border-s); padding-top: 24px; margin-top: 24px; }
+  .price-grid { grid-template-columns: 1fr; }
+  .feat-grid { grid-template-columns: 1fr; }
+  .cta-btns { flex-direction: column; align-items: center; }
+}
 </style>
 </head>
 <body>
 
+<!-- ── Nav ── -->
 <nav>
-  <div class="nav-logo">
+  <a href="#" class="nav-logo">
     <div class="nav-mark">D</div>
     <span class="nav-name">D-Club</span>
-  </div>
-  <a href="https://dclub-tr.github.io/d-club/" class="btn-free-nav">Ücretsiz Kanala Katıl</a>
+  </a>
+  <a href="https://dclub-tr.github.io/d-club/" class="nav-cta">Ücretsiz Kanala Katıl</a>
 </nav>
 
-<div class="tv-ticker">
-  <div class="tradingview-widget-container">
-    <div class="tradingview-widget-container__widget"></div>
-    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-    {
-      "symbols": [
-        {"proName":"FOREXCOM:SPXUSD","title":"S&P 500"},
-        {"proName":"NASDAQ:QQQ","title":"Nasdaq"},
-        {"proName":"NASDAQ:AAPL","title":"AAPL"},
-        {"proName":"NASDAQ:NVDA","title":"NVDA"},
-        {"proName":"NASDAQ:TSLA","title":"TSLA"},
-        {"proName":"NASDAQ:MSFT","title":"MSFT"},
-        {"proName":"NASDAQ:AMZN","title":"AMZN"},
-        {"proName":"BITSTAMP:BTCUSD","title":"BTC/USD"}
-      ],
-      "showSymbolLogo": true,
-      "colorTheme": "dark",
-      "isTransparent": true,
-      "displayMode": "adaptive",
-      "locale": "tr"
-    }
-    </script>
+<!-- ── Feature Marquee Band ── -->
+<div class="feat-band">
+  <div class="feat-band-inner">
+    <!-- set 1 -->
+    <span class="fb-item">Model Portföy</span>
+    <span class="fb-sep">·</span>
+    <span class="fb-item">İşlem Sinyalleri</span>
+    <span class="fb-sep">·</span>
+    <span class="fb-item">Hisse Analizleri</span>
+    <span class="fb-sep">·</span>
+    <span class="fb-item">Kar / Zarar Performans Raporu</span>
+    <span class="fb-sep">·</span>
+    <span class="fb-item">DERS Komutu ile Öğren</span>
+    <span class="fb-sep">·</span>
+    <span class="fb-item">Backtest &amp; Earnings Takvimi</span>
+    <span class="fb-sep">·</span>
+    <span class="fb-item">Temettü &amp; IPO Takibi</span>
+    <span class="fb-sep">·</span>
+    <span class="fb-item">SPY Scalp Sinyalleri</span>
+    <span class="fb-sep">◆</span>
+    <span class="fb-logo">D-Club</span>
+    <span class="fb-sep">◆</span>
+    <!-- set 2 (seamless loop) -->
+    <span class="fb-item">Model Portföy</span>
+    <span class="fb-sep">·</span>
+    <span class="fb-item">İşlem Sinyalleri</span>
+    <span class="fb-sep">·</span>
+    <span class="fb-item">Hisse Analizleri</span>
+    <span class="fb-sep">·</span>
+    <span class="fb-item">Kar / Zarar Performans Raporu</span>
+    <span class="fb-sep">·</span>
+    <span class="fb-item">DERS Komutu ile Öğren</span>
+    <span class="fb-sep">·</span>
+    <span class="fb-item">Backtest &amp; Earnings Takvimi</span>
+    <span class="fb-sep">·</span>
+    <span class="fb-item">Temettü &amp; IPO Takibi</span>
+    <span class="fb-sep">·</span>
+    <span class="fb-item">SPY Scalp Sinyalleri</span>
+    <span class="fb-sep">◆</span>
+    <span class="fb-logo">D-Club</span>
+    <span class="fb-sep">◆</span>
   </div>
 </div>
 
-<!-- HERO -->
+<!-- ── Hero ── -->
 <section class="hero">
-  <div class="hero-grid"></div>
-  <div class="hero-badge">
-    <span class="hero-badge-dot"></span>
-    Sinyal sistemi aktif · Günlük rapor yayında
+  <div class="hero-live">
+    <span class="live-dot"></span>
+    Sinyal sistemi aktif
   </div>
-  <h1>
-    ABD borsası, isabetli sinyaller —
-    <span class="break accent">senin temponda.</span>
+  <h1 class="display">
+    Yetişmek zorunda olmadan<br>
+    <em>ABD borsaları.</em>
   </h1>
   <p class="hero-sub">
-    Ekrana yapışmak zorunda değilsin. D-Club sabah raporunu okursun,
-    sinyal gelince bildirim alırsın, kararı sen verirsin. Baskı yok, gürültü yok.
+    Canlı yayına ve sosyal medyaya yetişmek zorunda değilsin.
+    D-Club senin temponda çalışır — öğren, hazır olduğunda al.
   </p>
-  <div class="hero-btns">
-    <a href="https://dclub-tr.github.io/d-club/" class="btn-free">Ücretsiz Kanala Katıl</a>
-    <a href="https://whop.com/joined/d-club/" class="btn-members">💎 Tam Üyelik — $6.99/ay</a>
+  <div class="btn-row">
+    <a href="https://dclub-tr.github.io/d-club/" class="btn-outline">Ücretsiz Kanala Katıl</a>
+    <a href="https://whop.com/joined/d-club/" class="btn-solid">Tam Üyelik — $6.99/ay</a>
   </div>
-  <p class="upgrade-nudge">Yıllık üyelikte 2 ay bedava → <a href="https://whop.com/joined/d-club/">$69.99/yıl</a></p>
-  <div class="hero-stat-row">
-    <div class="hero-stat">
-      <div class="hero-stat-num" style="color:var(--green)">+%349*</div>
-      <div class="hero-stat-label">Model Portföy Getirisi</div>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-n" style="color:var(--green)">+%349</div>
+      <div class="stat-l">2 Yıllık Model<br>Portföy Getirisi</div>
     </div>
-    <div class="hero-stat">
-      <div class="hero-stat-num">20+</div>
-      <div class="hero-stat-label">Sinyal Ticker</div>
+    <div class="stat">
+      <div class="stat-n">27+</div>
+      <div class="stat-l">Sinyal<br>Ticker</div>
     </div>
-    <div class="hero-stat">
-      <div class="hero-stat-num">20+</div>
-      <div class="hero-stat-label">Yıl Deneyim</div>
+    <div class="stat">
+      <div class="stat-n">20+</div>
+      <div class="stat-l">Yıl<br>Deneyim</div>
     </div>
-    <div class="hero-stat">
-      <div class="hero-stat-num" style="color:var(--accent)">7/24</div>
-      <div class="hero-stat-label">Bot Aktif</div>
+    <div class="stat">
+      <div class="stat-n" style="color:var(--blue)">7/24</div>
+      <div class="stat-l">Kullanıma<br>Hazır</div>
     </div>
   </div>
-  <p class="hero-footnote">
-    * Mayıs 2024 – Mayıs 2026 dönemine ait 2 yıllık kümülatif getiridir.
-    Geçmiş performans gelecek sonuçları garanti etmez. Yatırım tavsiyesi değildir.
+  <p class="hero-note">
+    * Mayıs 2024 – Mayıs 2026 dönemine ait kümülatif getiridir. Geçmiş performans gelecekteki sonuçları garanti etmez.
+    Bu platform yatırım tavsiyesi vermez.
   </p>
 </section>
 
-<!-- TICKER BAND -->
-<div class="ticker-wrap">
-  <div class="ticker" id="tickerTrack">
-    <span style="color:var(--muted);font-size:13px;padding:0 24px">Fiyatlar yükleniyor…</span>
+<!-- ── Custom Price Ticker ── -->
+<div class="ticker-band">
+  <div class="ticker-inner" id="tickerTrack">
+    <span style="color:var(--muted);font-size:13px;padding:0 24px">Yükleniyor…</span>
   </div>
 </div>
-<div class="ticker-ts" id="tickerTs"></div>
-
 <script>
 (function(){
-  var ENDPOINT = 'https://script.google.com/macros/s/AKfycbxV8fvUqHSsPdQcIj3xUs-FDJoQfICqgX2t0cwyMjmm64cvy2iq1JQt4PHGLjN1K_Wy/exec?action=ticker';
-  var track = document.getElementById('tickerTrack');
-  var tsEl  = document.getElementById('tickerTs');
-  function fmt(n){ return n>=1000?'$'+n.toLocaleString('en-US',{maximumFractionDigits:0}):'$'+n.toFixed(2); }
+  var ENDPOINT='https://script.google.com/macros/s/AKfycbxV8fvUqHSsPdQcIj3xUs-FDJoQfICqgX2t0cwyMjmm64cvy2iq1JQt4PHGLjN1K_Wy/exec?action=ticker';
+  var track=document.getElementById('tickerTrack');
+  function fmt(n){return n>=1000?'$'+n.toLocaleString('en-US',{maximumFractionDigits:0}):'$'+n.toFixed(2);}
   function build(data){
     var html='';
     for(var k=0;k<2;k++){
       data.forEach(function(d){
-        var cls=d.chg>=0?'tick-up':'tick-dn', sgn=d.chg>=0?'+':'';
-        html+='<div class="tick-item"><span class="tick-name">'+d.sym+'</span><span class="tick-price">'+fmt(d.price)+'</span><span class="'+cls+'">'+sgn+d.chg.toFixed(2)+'%</span></div>';
+        var cls=d.chg>=0?'tick-up':'tick-dn';
+        var sgn=d.chg>=0?'+':'';
+        html+='<div class="tick-item"><span class="tick-sym">'+d.sym+'</span><span class="tick-px">'+fmt(d.price)+'</span><span class="'+cls+'">'+sgn+d.chg.toFixed(2)+'%</span></div>';
       });
     }
     track.innerHTML=html;
   }
-  fetch(ENDPOINT).then(function(r){return r.json();}).then(function(res){
-    if(res.data&&res.data.length>0){
-      build(res.data);
-      if(res.ts){var d=new Date(res.ts);tsEl.textContent='Son güncelleme: '+d.toLocaleString('tr-TR',{hour:'2-digit',minute:'2-digit',day:'2-digit',month:'2-digit'});}
-    }
-  }).catch(function(){track.innerHTML='';});
+  fetch(ENDPOINT).then(function(r){return r.json();}).then(function(res){if(res.data&&res.data.length>0)build(res.data);}).catch(function(){track.innerHTML='';});
 })();
 </script>
 
-<!-- NASIL ÇALIŞIR -->
-<div class="journey-section">
-  <div class="container">
-    <div class="section-badge">Nasıl Çalışır</div>
-    <h2>Üç adımda D-Club'a alışırsın.</h2>
-    <p class="section-sub">Önce kanalı keşfet, sonra tam üyeliğe geç, ardından kendi rutinini kur.</p>
+<!-- ── Signals Showcase ── -->
+<section class="signals-section">
+  <div class="container-wide">
+    <div class="signals-intro">
+      <div class="sec-label">Sinyal Sistemi</div>
+      <h2 class="headline">Öğretici İşlem Sinyalleri</h2>
+      <p>EMA, RSI, VWAP, hacim ve candlestick pattern analizi ile üretilen Long &amp; Short sinyaller — admin onayından sonra Members kanalına iletilir. Yalnızca eğitim amaçlıdır.</p>
+    </div>
 
-    <div class="journey-grid">
+    <div class="sig-grid">
 
-      <!-- ADIM 1 -->
-      <div class="journey-step">
-        <div class="journey-num step1">1</div>
-        <div class="journey-title">Ana Kanala Katıl</div>
-        <div class="journey-label free">Ücretsiz</div>
-        <div class="journey-items">
-          <div class="journey-item"><span class="journey-item-icon">🌅</span><div><strong>Günaydın Raporu</strong> — her sabah 9:00'da endeksler, kripto, BTC sentiment ve günün ajandası gelir.</div></div>
-          <div class="journey-item"><span class="journey-item-icon">⚡</span><div><strong>Pre-Market Alarmı</strong> — 15:30'da ABD açılışı öncesi fiyatlar ve dikkat edilecek hisseler.</div></div>
-          <div class="journey-item"><span class="journey-item-icon">📊</span><div><strong>Model Portföy Özeti</strong> — günde 2 kez portföyün durumu. Detay yoktur ama nabzı tutarsın.</div></div>
-          <div class="journey-item"><span class="journey-item-icon">📡</span><div><strong>Sinyal Özetleri</strong> — sinyal üretildiğinde kanalda görürsün. Hangi hisse, hangi yön. Tam detay Tam Üyelik'te.</div></div>
-          <div class="journey-item"><span class="journey-item-icon">🔔</span><div><strong>İşlem Özetleri</strong> — gerçek alım/satım bildirimleri. Ticker ve yönü görürsün, fiyat ve gerekçe Tam Üyelik'te.</div></div>
-          <div class="journey-item"><span class="journey-item-icon">🚀</span><div><strong>IPO Haberleri</strong> — güncel halka arz gelişmeleri ve özet analizler.</div></div>
+      <!-- NVDA Swing Long -->
+      <div class="sig-card swing">
+        <div class="sig-type">Swing Trade · Long</div>
+        <div class="sig-top">
+          <div class="sig-ticker">NVDA</div>
+          <div class="sig-score">78 / 100</div>
+        </div>
+        <div class="sig-dir">AL</div>
+        <div class="sig-rows">
+          <div class="sig-row"><span class="sig-row-l">Giriş Bölgesi</span><span class="sig-row-v">$118 – $121</span></div>
+          <div class="sig-row"><span class="sig-row-l">Hedef 1</span><span class="sig-row-v pos">$132 <span class="dim">(+9.9%)</span></span></div>
+          <div class="sig-row"><span class="sig-row-l">Hedef 2</span><span class="sig-row-v pos">$145 <span class="dim">(+20.7%)</span></span></div>
+          <div class="sig-row"><span class="sig-row-l">Stop-Loss</span><span class="sig-row-v neg">$110 <span class="dim">(-8.3%)</span></span></div>
+          <div class="sig-row"><span class="sig-row-l">Risk / Ödül</span><span class="sig-row-v">1 : 2.4</span></div>
+        </div>
+        <div class="sig-hr"></div>
+        <div class="sig-reasons">
+          <div class="sig-reason">EMA200 üzerinde</div>
+          <div class="sig-reason">RSI 54 — ideal giriş bölgesi</div>
+          <div class="sig-reason">Hacim %40 ortalama üzerinde</div>
         </div>
       </div>
 
-      <!-- ADIM 2 -->
-      <div class="journey-step">
-        <div class="journey-num step2">2</div>
-        <div class="journey-title">Üye Ol</div>
-        <div class="journey-label paid">$6.99 / ay</div>
-        <div class="journey-items">
-          <div class="journey-item"><span class="journey-item-icon">📡</span><div><strong>Tam Swing Sinyalleri</strong> — giriş bölgesi, hedef 1 & 2, stop-loss, sinyal gücü (1–10) ve tüm teknik gerekçeler.</div></div>
-          <div class="journey-item"><span class="journey-item-icon">🔍</span><div><strong>/BAK Komutu</strong> — herhangi bir hisseyi sorgula. EMA, RSI, MACD, Fibonacci, değerleme ve analist görüşü.</div></div>
-          <div class="journey-item"><span class="journey-item-icon">📚</span><div><strong>/DERS Komutu</strong> — merak ettiğin konuyu yaz, AI sade Türkçe ile açıklasın. Sınır yok.</div></div>
-          <div class="journey-item"><span class="journey-item-icon">💼</span><div><strong>Gerçek İşlem Detayları</strong> — ticker, adet, fiyat, gerekçe. Spot ve opsiyon işlemleri dahil.</div></div>
-          <div class="journey-item"><span class="journey-item-icon">🚀</span><div><strong>/IPO Tam Analizi</strong> — değerleme çerçevesi, peer karşılaştırması, risk faktörleri, katılım rehberi.</div></div>
-          <div class="journey-item"><span class="journey-item-icon">📈</span><div><strong>Haftalık Backtest</strong> — her Pazar sinyallerin performansı: win rate, PnL, beklenti analizi.</div></div>
-          <div class="journey-item"><span class="journey-item-icon">💬</span><div><strong>Üye Sohbet Kanalı</strong> — diğer üyelerle piyasayı tartış. Spam yok, gürültü yok.</div></div>
+      <!-- TSLA Short -->
+      <div class="sig-card day">
+        <div class="sig-type">Swing Trade · Short</div>
+        <div class="sig-top">
+          <div class="sig-ticker">TSLA</div>
+          <div class="sig-score">68 / 100</div>
+        </div>
+        <div class="sig-dir">SAT</div>
+        <div class="sig-rows">
+          <div class="sig-row"><span class="sig-row-l">Giriş Bölgesi</span><span class="sig-row-v">$245 – $249</span></div>
+          <div class="sig-row"><span class="sig-row-l">Hedef 1</span><span class="sig-row-v pos">$228 <span class="dim">(-7.0%)</span></span></div>
+          <div class="sig-row"><span class="sig-row-l">Hedef 2</span><span class="sig-row-v pos">$210 <span class="dim">(-14.3%)</span></span></div>
+          <div class="sig-row"><span class="sig-row-l">Stop-Loss</span><span class="sig-row-v neg">$258 <span class="dim">(+5.3%)</span></span></div>
+          <div class="sig-row"><span class="sig-row-l">Risk / Ödül</span><span class="sig-row-v">1 : 2.1</span></div>
+        </div>
+        <div class="sig-hr"></div>
+        <div class="sig-reasons">
+          <div class="sig-reason">EMA50 altında — zayıf momentum</div>
+          <div class="sig-reason">RSI 68 — aşırı alım bölgesi</div>
+          <div class="sig-reason">Direnç bölgesinde hacim düşüyor</div>
         </div>
       </div>
 
-      <!-- ADIM 3 -->
-      <div class="journey-step">
-        <div class="journey-num step3">3</div>
-        <div class="journey-title">Rutinini Kur</div>
-        <div class="journey-label habit">Kendi Temponda</div>
-        <div class="journey-items">
-          <div class="journey-item"><span class="journey-item-icon">☀️</span><div><strong>Sabah 9:00</strong> — Günaydın raporunu oku, günün ajandası ne, piyasa nasıl açıyor.</div></div>
-          <div class="journey-item"><span class="journey-item-icon">📲</span><div><strong>Sinyal bildirimi</strong> — Telegramdan bildirim gelir. /BAK ile kontrol et, gerekçeyi anla.</div></div>
-          <div class="journey-item"><span class="journey-item-icon">🎯</span><div><strong>Karar tamamen sende</strong> — D-Club analiz üretir, baskı yapmaz. Girmek ya da geçmek senin tercihin.</div></div>
-          <div class="journey-item"><span class="journey-item-icon">📚</span><div><strong>Bir şey mi anlamadın?</strong> — /DERS yaz, öğren. EMA'dan opsiyona her konu var.</div></div>
-          <div class="journey-item"><span class="journey-item-icon">📊</span><div><strong>Pazar 17:00</strong> — Haftalık backtest sonuçları gelir. Hangi sinyal çalıştı, hangisi çalışmadı, neden?</div></div>
-          <div class="journey-item"><span class="journey-item-icon">🔄</span><div><strong>Sistem öğrenir, sen de öğrenirsin.</strong> — Her hafta biraz daha netleşir.</div></div>
+      <!-- SPY Scalp -->
+      <div class="sig-card scalp">
+        <div class="sig-type">SPY Scalp</div>
+        <div class="sig-top">
+          <div class="sig-ticker">SPY</div>
+          <div class="sig-score">85 / 100</div>
+        </div>
+        <div class="sig-dir">AL Scalp</div>
+        <div class="sig-rows">
+          <div class="sig-row"><span class="sig-row-l">Fiyat</span><span class="sig-row-v">$521.40</span></div>
+          <div class="sig-row"><span class="sig-row-l">VWAP</span><span class="sig-row-v">$519.82</span></div>
+          <div class="sig-row"><span class="sig-row-l">Hedef</span><span class="sig-row-v pos">$522.85 <span class="dim">(+0.28%)</span></span></div>
+          <div class="sig-row"><span class="sig-row-l">Stop</span><span class="sig-row-v neg">$520.63 <span class="dim">(-0.15%)</span></span></div>
+          <div class="sig-row"><span class="sig-row-l">Risk / Ödül</span><span class="sig-row-v">1 : 1.9</span></div>
+        </div>
+        <div class="sig-hr"></div>
+        <div class="sig-reasons">
+          <div class="sig-reason">VWAP üzerinde</div>
+          <div class="sig-reason">ROC +0.18% — ivme artıyor</div>
+          <div class="sig-reason">Bullish Engulfing — 2–15 dk çıkış</div>
         </div>
       </div>
 
     </div>
+    <p class="sig-note">Örnek gösterim — gerçek sinyaller Pazartesi–Cuma piyasa saatlerinde üretilir. Yatırım tavsiyesi değildir.</p>
   </div>
-</div>
+</section>
 
-<section class="chart-section">
+<!-- ── Live Chart ── -->
+<div class="chart-section">
   <div class="container">
-    <div class="section-badge">Piyasa</div>
-    <h2>Piyasayı canlı izle</h2>
-    <p class="section-sub">S&amp;P 500 (SPY) — takip ettiğimiz ana endeks. Grafik üzerinde sembol değiştirebilirsin.</p>
+    <div class="sec-label">Piyasa</div>
+    <h2 class="headline">Piyasayı canlı izle</h2>
+    <p class="chart-lead">S&amp;P 500 (SPY) — takip ettiğimiz ana endeks. Grafiği değiştirip istediğin hisseyi inceleyebilirsin.</p>
     <div class="chart-wrap">
       <div class="tradingview-widget-container" style="height:100%;width:100%">
         <div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div>
@@ -362,7 +601,7 @@ footer p{font-size:12px;color:var(--muted)}
           "symbol": "AMEX:SPY",
           "interval": "D",
           "timezone": "Europe/Istanbul",
-          "theme": "dark",
+          "theme": "light",
           "style": "1",
           "locale": "tr",
           "allow_symbol_change": true,
@@ -374,197 +613,181 @@ footer p{font-size:12px;color:var(--muted)}
       </div>
     </div>
   </div>
-</section>
+</div>
 
-<!-- ARAÇLAR -->
-<section>
+<!-- ── Features ── -->
+<div class="features-section">
   <div class="container">
-    <div class="section-badge">Araçlar</div>
-    <h2>Sistemin içinde ne var?</h2>
-    <p class="section-sub">Telegram botumuz 7/24 çalışır. Her araç belirli bir amaca hizmet eder.</p>
+    <div class="features-head">
+      <div class="sec-label">Ne Sunuyoruz</div>
+      <h2 class="headline">Kalabalık değil,<br>butik.</h2>
+      <p>Sabah 10:30'dan gece 23:00'a kadar piyasanın nabzını tutuyoruz. Kalite odaklı, seçkin bir topluluk.</p>
+    </div>
+    <div class="feat-grid">
 
-    <div class="tools-grid">
-      <div class="tool-card signal">
-        <div class="tool-icon">📡</div>
-        <h3>Swing Trade Sinyalleri</h3>
-        <p>20+ hisse için günlük tarama. EMA200, RSI, hacim, Fair Value Gap ve pivot seviyeleri bir arada analiz edilir. Sinyal gücü 1–10 skalasında gösterilir. Giriş bölgesi, iki hedef ve stop-loss dahil.</p>
-        <span class="tool-tag members">Tam Üyelik</span>
-        <span class="tool-tag new">FVG Destekli</span>
+      <!-- Row 1 -->
+      <div class="feat-item">
+        <div class="feat-t">Öğretici İşlem Sinyalleri</div>
+        <div class="feat-d">27+ hisse için Long &amp; Short sinyaller. EMA, RSI, VWAP, hacim ve candlestick analizi. Güven skoru 75+ long, 65+ short için iletilir. Giriş, hedef ve stop-loss dahil.</div>
+        <div class="feat-tags"><span class="tag m">Tam Üyelik</span><span class="tag n">Yeni</span></div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-t">SPY Scalp Sinyalleri</div>
+        <div class="feat-d">Her 5 dakikada bir SPY taranır. VWAP, RSI, ROC ve candlestick pattern analizi. Güven skoru 80+ için anında iletilir.</div>
+        <div class="feat-tags"><span class="tag m">Tam Üyelik</span></div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-t">BAK Hisse Analizi</div>
+        <div class="feat-d">İstediğin hisseyi sorgula — EMA50/100/200, RSI, MACD, Fibonacci seviyeleri ve analist konsensüsü anında görüntüle.</div>
+        <div class="feat-tags"><span class="tag m">Tam Üyelik</span></div>
       </div>
 
-      <div class="tool-card signal">
-        <div class="tool-icon">⚡</div>
-        <h3>SPY Scalp Sinyalleri</h3>
-        <p>Piyasa saatlerinde her 5 dakikada SPY taranır. VWAP, RSI, ROC ve candlestick pattern analizi. Güven skoru 80+ olan fırsatlar anında iletilir. 2–15 dakika içinde sonuç.</p>
-        <span class="tool-tag members">Tam Üyelik</span>
+      <!-- Row 2 -->
+      <div class="feat-item">
+        <div class="feat-t">DERS Komutu — AI Eğitim</div>
+        <div class="feat-d">EMA, RSI, stop-loss, P/E, candlestick ve daha fazlası — merak ettiğin kavramı sor, AI sade Türkçe açıklasın. Sınır yok.</div>
+        <div class="feat-tags"><span class="tag m">Tam Üyelik</span><span class="tag n">Yeni</span></div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-t">Gerçek İşlem Bildirimleri</div>
+        <div class="feat-d">Alım/satımlarda anında bildirim. Ticker, adet, fiyat ve gerekçe. Spot ve opsiyon işlemleri dahil.</div>
+        <div class="feat-tags"><span class="tag m">Tam Üyelik</span></div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-t">Fırsat Hisseler</div>
+        <div class="feat-d">Öne çıkan hisseler için detaylı raporlar. Teknik seviyeler, hedef fiyat ve izleme gerekçesi.</div>
+        <div class="feat-tags"><span class="tag m">Tam Üyelik</span></div>
       </div>
 
-      <div class="tool-card members-only">
-        <div class="tool-icon">🔍</div>
-        <h3>BAK Komutu</h3>
-        <p>İstediğin hisseyi sorgula: <code style="background:var(--bg);padding:2px 6px;border-radius:4px;font-size:12px">BAK NVDA</code>. EMA50/100/200 trendi, RSI, MACD, Fibonacci seviyeleri, P/E, PEG ve analist konsensüsü — tek raporda.</p>
-        <span class="tool-tag members">Tam Üyelik</span>
+      <!-- Row 3 -->
+      <div class="feat-item">
+        <div class="feat-t">Opsiyon Portföyü</div>
+        <div class="feat-d">Opsiyon pozisyonları, kontrat detayları ve anlık PnL takibi. Gerçek opsiyon stratejisini adım adım izle.</div>
+        <div class="feat-tags"><span class="tag m">Tam Üyelik</span></div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-t">Haftalık Backtest</div>
+        <div class="feat-d">Geçen haftaki sinyallerin performans özeti. Hangi sinyaller tuttu, hangisi tutmadı — net kazanç/kayıp raporu.</div>
+        <div class="feat-tags"><span class="tag m">Tam Üyelik</span></div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-t">Bilanço Takvimi</div>
+        <div class="feat-d">Haftalık ve aylık earnings takvimi. Hangi şirket ne zaman bilanço açıklıyor, Wall Street konsensüs tahminleri.</div>
+        <div class="feat-tags"><span class="tag m">Tam Üyelik</span></div>
       </div>
 
-      <div class="tool-card members-only">
-        <div class="tool-icon">📚</div>
-        <h3>DERS Komutu</h3>
-        <p>Merak ettiğin konuyu yaz, AI Türkçe açıklasın. EMA nedir, stop-loss nasıl belirlenir, P/E oranı ne anlama gelir, Fibonacci seviyeleri nasıl kullanılır — sınır yok.</p>
-        <span class="tool-tag members">Tam Üyelik</span>
+      <!-- Row 4 -->
+      <div class="feat-item">
+        <div class="feat-t">Temettü Takvimi</div>
+        <div class="feat-d">İzlenen hisseler için temettü tarihleri, ödeme tutarları ve geçmiş getiri oranları.</div>
+        <div class="feat-tags"><span class="tag m">Tam Üyelik</span></div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-t">IPO Analizleri</div>
+        <div class="feat-d">Yaklaşan IPO'lar için detaylı analiz raporları. Şirket profili, sektör değerlendirmesi ve fiyat aralığı analizi.</div>
+        <div class="feat-tags"><span class="tag m">Tam Üyelik</span></div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-t">Üye Sohbet Kanalı</div>
+        <div class="feat-d">Diğer üyelerle piyasayı tartış, soru sor, fikir paylaş. Butik ve kaliteli bir topluluk deneyimi — spam yok, gürültü yok.</div>
+        <div class="feat-tags"><span class="tag m">Tam Üyelik</span></div>
       </div>
 
-      <div class="tool-card members-only">
-        <div class="tool-icon">🚀</div>
-        <h3>IPO Analizi</h3>
-        <p>Güncel halka arz için değerleme çerçevesi, peer karşılaştırması (canlı fiyatlar), risk faktörleri ve katılım rehberi. Şu an: SpaceX / Starlink analizi Tam Üyelik'te.</p>
-        <span class="tool-tag members">Tam Üyelik</span>
-        <span class="tool-tag new">SpaceX</span>
+      <!-- Row 5 — Free -->
+      <div class="feat-item">
+        <div class="feat-t">Günlük Haber Akışı</div>
+        <div class="feat-d">10:30, 15:30 ve 20:00'da Türkçe piyasa haberleri. Fed kararları, bilanço sonuçları ve jeopolitik gelişmeler önceliklendirilir.</div>
+        <div class="feat-tags"><span class="tag f">Ücretsiz</span></div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-t">Model Portföy Raporu</div>
+        <div class="feat-d">Günde 3 kez: açılış, piyasa saatleri ve kapanış. Toplam getiri, günlük değişim ve hisse bazlı performans.</div>
+        <div class="feat-tags"><span class="tag f">Ücretsiz</span></div>
+      </div>
+      <div class="feat-item">
+        <div class="feat-t">Pre-Market Raporu</div>
+        <div class="feat-d">Her sabah piyasa öncesi özet. Vadeli işlemler, gece haberleri ve günün öne çıkan hisselerinin analizi.</div>
+        <div class="feat-tags"><span class="tag f">Ücretsiz</span></div>
       </div>
 
-      <div class="tool-card members-only">
-        <div class="tool-icon">📊</div>
-        <h3>Haftalık Backtest</h3>
-        <p>Her Pazar 17:00'da otomatik gelir. Win rate, ortalama kazanç/kayıp, expectancy ve sinyal bazlı PnL. Sistemin ne kadar iyi çalıştığını sayılarla görürsün.</p>
-        <span class="tool-tag members">Tam Üyelik</span>
+    </div>
+  </div>
+</div>
+
+<!-- ── Pricing ── -->
+<section class="pricing-section">
+  <div class="container">
+    <div class="pricing-head">
+      <div class="sec-label">Üyelik</div>
+      <h2 class="headline">Her ay bir kahve parasına<br>piyasanın içinde ol.</h2>
+      <p>Ücretsiz kanaldan başla, hazır olduğunda yüksel.</p>
+    </div>
+    <div class="price-grid">
+
+      <!-- Free -->
+      <div class="price-card">
+        <div class="price-tier">Ana Kanal</div>
+        <div class="price-amt">$0<sub>/ay</sub></div>
+        <div class="price-per">Sonsuza kadar ücretsiz</div>
+        <div class="price-hr"></div>
+        <div class="price-list">
+          <div class="price-item"><div class="chk">✓</div>Günlük piyasa haberleri (3 kez)</div>
+          <div class="price-item"><div class="chk">✓</div>Sabah piyasa özeti (09:00)</div>
+          <div class="price-item"><div class="chk">✓</div>Model portföy raporları</div>
+          <div class="price-item"><div class="chk">✓</div>Pre-market raporu</div>
+          <div class="price-item"><div class="chk">✓</div>İşlem &amp; sinyal teaser'ları</div>
+          <div class="price-item lo"><div class="lck">○</div>İşlem sinyalleri (Long &amp; Short)</div>
+          <div class="price-item lo"><div class="lck">○</div>SPY Scalp sinyalleri</div>
+          <div class="price-item lo"><div class="lck">○</div>BAK analizi &amp; DERS komutu</div>
+          <div class="price-item lo"><div class="lck">○</div>Backtest, bilanço &amp; temettü takvimleri</div>
+        </div>
+        <a href="https://dclub-tr.github.io/d-club/" class="price-btn g">Ücretsiz Kanala Katıl</a>
       </div>
 
-      <div class="tool-card free-card">
-        <div class="tool-icon">💼</div>
-        <h3>Model Portföy Raporu</h3>
-        <p>Günde 2 kez: açılış ve kapanış. Toplam getiri, günlük değişim ve hisse bazlı performans. Özet Ana Kanal'da, tam detay Tam Üyelik'te.</p>
-        <span class="tool-tag free">Özet Ücretsiz</span>
-        <span class="tool-tag members">Tam Detay Members</span>
+      <!-- Members -->
+      <div class="price-card featured">
+        <div class="price-tier hot">Tam Üyelik · En Popüler</div>
+        <div class="price-amt" style="color:var(--blue)">$6.99<sub>/ay</sub></div>
+        <div class="price-per">veya $69.99/yıl — 2 ay bedava</div>
+        <div class="price-hr"></div>
+        <div class="price-list">
+          <div class="price-item"><div class="chk">✓</div>Ücretsiz her şey, artı:</div>
+          <div class="price-item hi"><div class="chk">✓</div>Öğretici işlem sinyalleri (27+ hisse, Long &amp; Short)</div>
+          <div class="price-item hi"><div class="chk">✓</div>SPY Scalp sinyalleri (5 dk tarama)</div>
+          <div class="price-item hi"><div class="chk">✓</div>DERS — AI yatırım eğitimi</div>
+          <div class="price-item"><div class="chk">✓</div>BAK hisse analizi</div>
+          <div class="price-item"><div class="chk">✓</div>Gerçek işlem bildirimleri</div>
+          <div class="price-item"><div class="chk">✓</div>Fırsat hissesi raporları</div>
+          <div class="price-item"><div class="chk">✓</div>Opsiyon portföyü &amp; PnL takibi</div>
+          <div class="price-item"><div class="chk">✓</div>Haftalık backtest raporu</div>
+          <div class="price-item"><div class="chk">✓</div>Bilanço &amp; earnings takvimi</div>
+          <div class="price-item"><div class="chk">✓</div>Temettü takvimi</div>
+          <div class="price-item"><div class="chk">✓</div>IPO analizleri</div>
+          <div class="price-item"><div class="chk">✓</div>Üye sohbet kanalı</div>
+        </div>
+        <a href="https://whop.com/joined/d-club/" class="price-btn p">Tam Üyelik Al</a>
       </div>
 
-      <div class="tool-card free-card">
-        <div class="tool-icon">🌅</div>
-        <h3>Günaydın Raporu</h3>
-        <p>Her sabah 9:00. ABD endeksleri, kripto fiyatları, BTC teknik sentiment ve günün makro ajandası. Piyasaya hazır başlamak için yeterli.</p>
-        <span class="tool-tag free">Ücretsiz</span>
-      </div>
-
-      <div class="tool-card free-card">
-        <div class="tool-icon">⚡</div>
-        <h3>Pre-Market Alarmı</h3>
-        <p>15:30'da ABD açılışından önce: endeks durumu, dikkat edilecek hisseler ve günün beklentileri. Açılışı kaçırmadan önce ne olduğunu bil.</p>
-        <span class="tool-tag free">Ücretsiz</span>
-      </div>
     </div>
   </div>
 </section>
 
-<!-- KARŞILAŞTIRMA -->
-<div class="compare-section">
-  <div class="container" style="text-align:center">
-    <div class="section-badge">Ücretsiz vs Members</div>
-    <h2>Ne görmek istiyorsun?</h2>
-    <p class="section-sub" style="margin:0 auto">Ücretsiz kanal piyasanın nabzını tutar. Members tüm detayları açar.</p>
-
-    <div class="compare-grid">
-      <div class="compare-card">
-        <div class="compare-head">
-          <div class="compare-label">Ana Kanal</div>
-          <div class="compare-price">$0<span>/ay</span></div>
-          <div class="compare-period">Sonsuza kadar ücretsiz</div>
-        </div>
-        <div class="compare-divider"></div>
-        <div class="compare-list">
-          <div class="compare-item"><span class="compare-item-icon">✅</span>Günaydın raporu (9:00)</div>
-          <div class="compare-item"><span class="compare-item-icon">✅</span>Pre-market alarmı (15:30)</div>
-          <div class="compare-item"><span class="compare-item-icon">✅</span>Model portföy özeti</div>
-          <div class="compare-item"><span class="compare-item-icon">✅</span>Sinyal özetleri (yön ve ticker)</div>
-          <div class="compare-item"><span class="compare-item-icon">✅</span>İşlem özetleri</div>
-          <div class="compare-item"><span class="compare-item-icon">✅</span>IPO haber özetleri</div>
-          <div class="compare-item dimmed"><span class="compare-item-icon">🔒</span>Sinyal detayları (giriş/hedef/stop)</div>
-          <div class="compare-item dimmed"><span class="compare-item-icon">🔒</span>BAK ve DERS komutları</div>
-          <div class="compare-item dimmed"><span class="compare-item-icon">🔒</span>Gerçek işlem fiyat ve gerekçesi</div>
-          <div class="compare-item dimmed"><span class="compare-item-icon">🔒</span>Haftalık backtest raporu</div>
-        </div>
-        <a href="https://dclub-tr.github.io/d-club/" class="price-btn free-btn">Ücretsiz Kanala Katıl</a>
-      </div>
-
-      <div class="compare-card featured">
-        <div class="compare-head">
-          <div class="compare-label hot">Tam Üyelik · En Popüler</div>
-          <div class="compare-price" style="color:var(--accent)">$6.99<span>/ay</span></div>
-          <div class="compare-period">veya $69.99/yıl — 2 ay bedava</div>
-        </div>
-        <div class="compare-divider"></div>
-        <div class="compare-list">
-          <div class="compare-item"><span class="compare-item-icon">✅</span>Ücretsiz her şey +</div>
-          <div class="compare-item highlight"><span class="compare-item-icon">⭐</span>Tam swing sinyalleri + sinyal gücü</div>
-          <div class="compare-item highlight"><span class="compare-item-icon">⭐</span>SPY Scalp sinyalleri</div>
-          <div class="compare-item highlight"><span class="compare-item-icon">⭐</span>/BAK hisse analizi (herhangi ticker)</div>
-          <div class="compare-item highlight"><span class="compare-item-icon">⭐</span>/DERS AI yatırım eğitimi</div>
-          <div class="compare-item highlight"><span class="compare-item-icon">⭐</span>/IPO tam analiz raporu</div>
-          <div class="compare-item"><span class="compare-item-icon">✅</span>Gerçek işlem tam detayları</div>
-          <div class="compare-item"><span class="compare-item-icon">✅</span>Haftalık backtest raporu</div>
-          <div class="compare-item"><span class="compare-item-icon">✅</span>Model portföy tam raporu</div>
-          <div class="compare-item"><span class="compare-item-icon">✅</span>Üye sohbet kanalı</div>
-        </div>
-        <a href="https://whop.com/joined/d-club/" class="price-btn primary">Tam Üyelik Al</a>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- FİYATLANDIRMA -->
-<div class="pricing-section">
-  <div class="section-badge">Üyelik Planları</div>
-  <p class="pricing-headline">Her ay bir kahve parasına<br>piyasanın içinde ol.</p>
-  <div class="pricing-grid">
-    <div class="price-card">
-      <div class="price-label">Ana Kanal</div>
-      <div class="price-num">$0<span>/ay</span></div>
-      <div class="price-period">Sonsuza kadar ücretsiz</div>
-      <div class="price-divider"></div>
-      <div class="price-items">
-        <div class="price-item"><span class="price-item-icon">✅</span>Günaydın raporu</div>
-        <div class="price-item"><span class="price-item-icon">✅</span>Pre-market alarmı</div>
-        <div class="price-item"><span class="price-item-icon">✅</span>Model portföy özeti</div>
-        <div class="price-item"><span class="price-item-icon">✅</span>Sinyal ve işlem özetleri</div>
-        <div class="price-item" style="opacity:.4"><span class="price-item-icon">🔒</span>Sinyal detayları</div>
-        <div class="price-item" style="opacity:.4"><span class="price-item-icon">🔒</span>BAK · DERS · IPO komutları</div>
-      </div>
-      <a href="https://dclub-tr.github.io/d-club/" class="price-btn free-btn">Ücretsiz Katıl</a>
-    </div>
-
-    <div class="price-card featured">
-      <div class="price-label hot">Tam Üyelik · En Popüler</div>
-      <div class="price-num" style="color:var(--accent)">$6.99<span>/ay</span></div>
-      <div class="price-period">veya $69.99/yıl — 2 ay bedava</div>
-      <div class="price-divider"></div>
-      <div class="price-items">
-        <div class="price-item"><span class="price-item-icon">✅</span>Ücretsiz her şey +</div>
-        <div class="price-item highlight"><span class="price-item-icon">⭐</span>Swing sinyalleri (20+ hisse)</div>
-        <div class="price-item highlight"><span class="price-item-icon">⭐</span>SPY Scalp sinyalleri</div>
-        <div class="price-item highlight"><span class="price-item-icon">⭐</span>BAK · DERS · IPO komutları</div>
-        <div class="price-item"><span class="price-item-icon">✅</span>Gerçek işlem bildirimleri</div>
-        <div class="price-item"><span class="price-item-icon">✅</span>Haftalık backtest</div>
-        <div class="price-item"><span class="price-item-icon">✅</span>Üye sohbet kanalı</div>
-      </div>
-      <a href="https://whop.com/joined/d-club/" class="price-btn primary">Tam Üyelik Al</a>
-    </div>
-  </div>
-</div>
-
-<!-- CTA -->
+<!-- ── CTA ── -->
 <div class="cta-section">
   <div class="container">
-    <p style="font-size:clamp(22px,3vw,36px);font-weight:800;letter-spacing:-.02em;margin-bottom:8px;line-height:1.2;font-family:'Plus Jakarta Sans',sans-serif">
-      En iyi yatırım,<br><span style="color:var(--accent)">kendinize yatırımdır.</span>
-    </p>
-    <p style="font-size:13px;color:var(--muted);margin-bottom:36px">— Warren Buffett</p>
+    <p class="cta-quote">"En iyi yatırım,<br>kendinize yatırımdır."</p>
+    <p class="cta-cite">— Warren Buffett</p>
     <div class="cta-btns">
-      <a href="https://dclub-tr.github.io/d-club/" class="btn-free">Ücretsiz Kanala Katıl</a>
-      <a href="https://whop.com/joined/d-club/" class="btn-members">💎 Tam Üyelik Al</a>
+      <a href="https://dclub-tr.github.io/d-club/" class="btn-outline">Ücretsiz Kanala Katıl</a>
+      <a href="https://whop.com/joined/d-club/" class="btn-solid">Tam Üyelik Al</a>
     </div>
   </div>
 </div>
 
+<!-- ── Footer ── -->
 <footer>
   <p>D-Club · ABD Borsaları Odaklı Yatırım Topluluğu</p>
-  <p style="margin-top:8px">Bu platform yatırım danışmanlığı hizmeti vermez. Tüm içerikler yalnızca eğitim ve bilgilendirme amaçlıdır.</p>
+  <p>Bu platform yatırım danışmanlığı hizmeti vermez. Tüm içerikler yalnızca eğitim ve bilgilendirme amaçlıdır.</p>
 </footer>
 
 </body>
