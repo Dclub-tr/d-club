@@ -7,6 +7,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet" />
+<script src="https://telegram.org/js/telegram-web-app.js"></script>
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -385,7 +386,7 @@ footer p { font-size: 12px; color: var(--muted); line-height: 1.7; }
     <div class="nav-mark">D</div>
     <span class="nav-name">D-Club</span>
   </a>
-  <a href="https://dclub-tr.github.io/d-club/" class="nav-cta">Ücretsiz Kanala Katıl</a>
+  <a href="https://t.me/UNASDAQ_bot" class="nav-cta">Ücretsiz Kanala Katıl</a>
 </nav>
 
 <!-- ── Feature Marquee Band ── -->
@@ -447,7 +448,7 @@ footer p { font-size: 12px; color: var(--muted); line-height: 1.7; }
     D-Club senin temponda çalışır — öğren, hazır olduğunda al.
   </p>
   <div class="btn-row">
-    <a href="https://dclub-tr.github.io/d-club/" class="btn-outline">Ücretsiz Kanala Katıl</a>
+    <a href="https://t.me/UNASDAQ_bot" class="btn-outline">Ücretsiz Kanala Katıl</a>
     <a href="https://whop.com/joined/d-club/" class="btn-solid">Tam Üyelik — $6.99/ay</a>
   </div>
 
@@ -741,7 +742,7 @@ footer p { font-size: 12px; color: var(--muted); line-height: 1.7; }
           <div class="price-item lo"><div class="lck">○</div>BAK analizi &amp; DERS komutu</div>
           <div class="price-item lo"><div class="lck">○</div>Backtest, bilanço &amp; temettü takvimleri</div>
         </div>
-        <a href="https://dclub-tr.github.io/d-club/" class="price-btn g">Ücretsiz Kanala Katıl</a>
+        <a href="https://t.me/UNASDAQ_bot" class="price-btn g">Ücretsiz Kanala Katıl</a>
       </div>
 
       <!-- Members -->
@@ -778,7 +779,7 @@ footer p { font-size: 12px; color: var(--muted); line-height: 1.7; }
     <p class="cta-quote">"En iyi yatırım,<br>kendinize yatırımdır."</p>
     <p class="cta-cite">— Warren Buffett</p>
     <div class="cta-btns">
-      <a href="https://dclub-tr.github.io/d-club/" class="btn-outline">Ücretsiz Kanala Katıl</a>
+      <a href="https://t.me/UNASDAQ_bot" class="btn-outline">Ücretsiz Kanala Katıl</a>
       <a href="https://whop.com/joined/d-club/" class="btn-solid">Tam Üyelik Al</a>
     </div>
   </div>
@@ -789,6 +790,48 @@ footer p { font-size: 12px; color: var(--muted); line-height: 1.7; }
   <p>D-Club · ABD Borsaları Odaklı Yatırım Topluluğu</p>
   <p>Bu platform yatırım danışmanlığı hizmeti vermez. Tüm içerikler yalnızca eğitim ve bilgilendirme amaçlıdır.</p>
 </footer>
+
+<!-- ── Telegram Mini App Disclaimer Overlay ── -->
+<div id="tg-disclaimer" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(255,255,255,0.96);backdrop-filter:saturate(180%) blur(20px);-webkit-backdrop-filter:saturate(180%) blur(20px);display:flex;align-items:center;justify-content:center;padding:24px;">
+  <div style="max-width:480px;width:100%;background:#fff;border-radius:20px;padding:32px 28px;box-shadow:0 4px 40px rgba(0,0,0,0.12);font-family:'Inter',sans-serif;">
+    <div style="font-size:28px;margin-bottom:12px;">⚠️</div>
+    <h2 style="font-size:20px;font-weight:700;color:#1d1d1f;margin-bottom:16px;">Yasal Bildirim</h2>
+    <div style="font-size:14px;color:#3d3d3f;line-height:1.65;max-height:340px;overflow-y:auto;padding-right:4px;">
+      <p style="margin-bottom:12px;">D-Club bünyesindeki tüm içerikler — sinyaller, model portföy, analizler, yorumlar ve eğitim materyalleri — <strong>yalnızca eğitim ve bilgilendirme amacıyla</strong> sunulmaktadır.</p>
+      <p style="margin-bottom:12px;">Bu içerikler hiçbir şekilde kişisel <strong>yatırım tavsiyesi, portföy yönetimi veya finansal danışmanlık hizmeti</strong> niteliği taşımaz. Sermaye piyasalarında işlem yapmak önemli riskler içerir; geçmiş performans gelecekteki sonuçları garanti etmez.</p>
+      <p style="margin-bottom:12px;">Tüm yatırım kararları ve bunların sonuçları <strong>yalnızca size aittir.</strong> D-Club ve içerik üreticileri, üyelerin alım-satım kararlarından doğan herhangi bir kâr veya zararden sorumlu tutulamaz.</p>
+      <p>Devam ederek yukarıdaki koşulları okuduğunuzu ve kabul ettiğinizi onaylıyorsunuz.</p>
+    </div>
+    <div style="margin-top:24px;display:flex;flex-direction:column;gap:10px;">
+      <button id="tg-accept-btn" style="padding:14px;background:#0071e3;color:#fff;border:none;border-radius:12px;font-size:15px;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;">Okudum, Kabul Ediyorum →</button>
+      <button id="tg-cancel-btn" style="padding:12px;background:transparent;color:#6e6e73;border:1px solid rgba(0,0,0,0.15);border-radius:12px;font-size:14px;cursor:pointer;font-family:'Inter',sans-serif;">İptal</button>
+    </div>
+  </div>
+</div>
+
+<script>
+(function() {
+  var tg = window.Telegram && window.Telegram.WebApp;
+  if (!tg || !tg.initData) return; // Normal tarayıcıda overlay gösterme
+
+  tg.ready();
+  tg.expand();
+
+  var overlay = document.getElementById('tg-disclaimer');
+  overlay.style.display = 'flex';
+  // Sayfanın geri kalanını scroll-lock et
+  document.body.style.overflow = 'hidden';
+
+  document.getElementById('tg-accept-btn').addEventListener('click', function() {
+    tg.openTelegramLink('https://t.me/UNASDAQ_bot?start=welcome');
+    tg.close();
+  });
+
+  document.getElementById('tg-cancel-btn').addEventListener('click', function() {
+    tg.close();
+  });
+})();
+</script>
 
 </body>
 </html>
